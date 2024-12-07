@@ -1,16 +1,30 @@
 import Image from "next/image";
 
 import useTypewriter from "@/libs/hooks/useTypewriter";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { cn } from "@/libs/utils/styles";
 
 const Intro = () => {
   const [displayImage, setDisplayImage] = useState(false);
+  const [displayBodyText, setDisplayBodyText] = useState(false);
+  const timerRef = React.useRef<NodeJS.Timeout | null>(null);
   const myIntro = useTypewriter({
     text: "Hi, I am Myothiha!",
-    speed: 50,
-    callback: () => setDisplayImage(true),
+    speed: 60,
+    callback: () => {
+      setDisplayImage(true);
+      timerRef.current = setTimeout(() => {
+        setDisplayBodyText(true);
+      }, 400);
+    },
   });
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={"w-full flex justify-center"}>
@@ -29,7 +43,12 @@ const Intro = () => {
           />
         </div>
 
-        <p className={"mt-5 max-w-2xl"}>
+        <p
+          className={cn(
+            "mt-5 max-w-2xl hide transition-opacity duration-300",
+            displayBodyText && "show"
+          )}
+        >
           I am a professional web developer with over five years of experience
           designing and implementing diverse web applications, from simple
           static sites to dynamic, large-scale, and high-performance platforms.

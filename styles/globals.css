@@ -5,7 +5,6 @@
 @layer base {
   ::-webkit-scrollbar {
     @apply w-2 bg-transparent;
-
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-primary rounded-full;
@@ -17,12 +16,24 @@
 }
 
 @layer components {
-  h1,h2,h3,h4,h5,h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold text-5xl;
   }
-  p {
+  p,
+  span {
     @apply text-2xl font-normal;
   }
 }
-
-
+@layer utilities {
+  .hide {
+    @apply opacity-0 invisible;
+  }
+  .show {
+    @apply opacity-100 visible;
+  }
+}

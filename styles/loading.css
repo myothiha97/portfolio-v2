@@ -1,0 +1,10 @@
+.loader {
+  @apply w-44 h-5;
+  background: linear-gradient(#fffce1 0 0) 0/0% no-repeat #7b7878;
+  animation: l1 2s infinite linear;
+}
+@keyframes l1 {
+  100% {
+    background-size: 100%;
+  }
+}
