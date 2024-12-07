@@ -24,12 +24,12 @@ const Intro = () => {
             height={150}
             className={cn(
               "rounded-full border-4 border-primary opacity-0 invisible transition-opacity duration-500",
-              displayImage && "opacity-100 visible",
+              displayImage && "opacity-100 visible"
             )}
           />
         </div>
-        {/** Research ui effect for below section */}
-        <p className={"mt-5 max-w-2x}>
+
+        <p className={"mt-5 max-w-2xl"}>
           I am a professional web developer with over five years of experience
           designing and implementing diverse web applications, from simple
           static sites to dynamic, large-scale, and high-performance platforms.

@@ -17,6 +17,7 @@ import Skills from "@/components/sections/Skills";
 import { cn } from "@/libs/utils/styles";
 
 import PageSection from "@/components/sections/PageSection";
+import NavPagination from "./NavPagniation";
 
 type PropType = {
   slides?: React.ReactNode[];
@@ -59,13 +60,18 @@ const EmblaCarousel: React.FC<PropType> = ({
 
   return (
     <div className="embla">
+      <NavPagination
+        selectedIndex={selectedIndex}
+        className="fixed top-10 z-50"
+        emblaApi={emblaApi}
+      />
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((Section, index) => (
             <PageSection
               className={cn(
                 "embla__slide",
-                selectedIndex === index && "active",
+                selectedIndex === index && "active"
               )}
               key={index}
             >
