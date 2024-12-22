@@ -6,12 +6,13 @@ import {
   usePrevNextButtons,
 } from "./NavigationButtons";
 import useEmblaCarousel from "embla-carousel-react";
+import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 
 // sections
 import Intro from "@/components/sections/Intro";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
-import Skills from "@/components/sections/Skills";
+import Experiences from "@/components/sections/Experiences";
 
 // utils
 import { cn } from "@/libs/utils/styles";
@@ -27,7 +28,7 @@ type PropType = {
 const OPTIONS: EmblaOptionsType = { axis: "y" };
 const SECTIONS: React.ReactNode[] = [
   <Intro />,
-  <Skills />,
+  <Experiences />,
   <Projects />,
   <Contact />,
 ];
@@ -36,7 +37,9 @@ const EmblaCarousel: React.FC<PropType> = ({
   slides = SECTIONS,
   options = OPTIONS,
 }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    WheelGesturesPlugin(),
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSlideChange = () => {

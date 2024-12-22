@@ -7,7 +7,7 @@ interface NavPaginationProps {
   selectedIndex: number;
 }
 
-const SECTIONS = ["Intro", "Skills", "Projects", "Contact"];
+const SECTIONS = ["Intro", "Experiences", "Projects", "Contact"];
 
 const NavPagination = ({
   emblaApi,
@@ -22,7 +22,7 @@ const NavPagination = ({
             key={index}
             className={cn(
               "rounded-full",
-              selectedIndex === index ? "text-primary" : "text-gray-400"
+              selectedIndex === index ? "text-primary-color" : "text-gray-400"
             )}
             onClick={() => emblaApi?.scrollTo(index)}
           >

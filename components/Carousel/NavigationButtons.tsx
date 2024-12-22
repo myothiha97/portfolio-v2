@@ -5,6 +5,7 @@ import React, {
   useState,
 } from "react";
 import { EmblaCarouselType } from "embla-carousel";
+import Button from "../Button";
 
 type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;
@@ -14,7 +15,7 @@ type UsePrevNextButtonsType = {
 };
 
 export const usePrevNextButtons = (
-  emblaApi: EmblaCarouselType | undefined,
+  emblaApi: EmblaCarouselType | undefined
 ): UsePrevNextButtonsType => {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(false);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(false);
@@ -54,7 +55,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-    <button
+    <Button
       className="embla__button embla__button--prev"
       type="button"
       {...restProps}
@@ -66,7 +67,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
         />
       </svg>
       {children}
-    </button>
+    </Button>
   );
 };
 
@@ -74,7 +75,7 @@ export const NextButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-    <button
+    <Button
       className="embla__button embla__button--next"
       type="button"
       {...restProps}
@@ -86,6 +87,6 @@ export const NextButton: React.FC<PropType> = (props) => {
         />
       </svg>
       {children}
-    </button>
+    </Button>
   );
 };

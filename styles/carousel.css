@@ -1,92 +1,116 @@
 .embla {
-  position: relative;
-  margin: auto;
-  --slide-height: 100vh;
-  --slide-spacing: 1rem;
-  --slide-size: 100%;
+    position: relative;
+    margin: auto;
+    --slide-height: 100vh;
+    --slide-spacing: 1rem;
+    --slide-size: 100%;
 
-  @apply lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl 3xl:max-w-[1500px];
+    @apply lg:max-w-4xl xl:max-w-5xl 2xl:max-w-7xl 3xl:max-w-[1500px];
 }
+
 .embla__viewport {
-  overflow: hidden;
-  height: 100vh;
+    overflow: hidden;
+    height: 100vh;
 }
+
 .embla__container {
-  display: flex;
-  touch-action: pan-x pinch-zoom;
-  margin-top: calc(var(--slide-spacing) * -1);
-  height: calc(var(--slide-height) + var(--slide-spacing) * 2);
-  flex-direction: column;
+    display: flex;
+    touch-action: pan-x pinch-zoom;
+    margin-top: calc(var(--slide-spacing) * -1);
+    height: calc(var(--slide-height) + var(--slide-spacing) * 2);
+    flex-direction: column;
 }
+
 .embla__slide {
-  transform: translate3d(0, 0, 0);
-  height: var(--slide-height);
-  padding-top: var(--slide-spacing);
-  opacity: 0;
-  transition: opacity 0.4s;
+    transform: translate3d(0, 0, 0);
+    height: var(--slide-height);
+    padding-top: var(--slide-spacing);
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
 .embla__slide.active {
-  opacity: 1;
-  transition: opacity 1.3s;
+    opacity: 1;
+    transition: opacity 1.3s;
 }
+
 .embla__slide__number {
-  @apply shadow-md;
-  border-radius: 1.8rem;
-  font-size: 4rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--slide-height);
-  user-select: none;
+    @apply shadow-md;
+    border-radius: 1.8rem;
+    font-size: 4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--slide-height);
+    user-select: none;
 }
+
 .embla__controls {
-  position: absolute;
-  right: -10%;
-  top: 60%;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: space-between;
-  gap: 1.2rem;
+    position: absolute;
+    right: -10%;
+    top: 60%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+    gap: 1.2rem;
 
-  @apply lg:right-0;
+    @apply lg:right-0;
 }
+
 .embla__buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
-  align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+    align-items: center;
 }
-.embla__button {
-  appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  display: inline-flex;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  @apply shadow-md text-primary;
-  outline: 1px solid currentColor;
-  width: 3.6rem;
-  height: 3.6rem;
-  z-index: 1;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  &:not(:disabled):hover {
-    @apply bg-primary text-black transition duration-300 ease-in-out;
-  }
+.embla__button {
+    appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: inline-flex;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+
+    z-index: 1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @apply shadow-md text-primary-color w-14 h-14 relative;
+
+    &:not(:disabled):hover {
+        @apply bg-primary-color text-black transition duration-300 ease-in-out;
+    }
+
+    &:disabled .border-beam {
+        display: none;
+    }
+
+    &:disabled .shine-border {
+        display: none;
+    }
+
+    &:hover .shine-border {
+        display: none;
+    }
+
+    &:hover .border-beam {
+        display: none;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        outline: 0.5px solid currentColor;
+    }
 }
-.embla__button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+
 .embla__button__svg {
-  width: 35%;
-  height: 35%;
+    width: 35%;
+    height: 35%;
 }
