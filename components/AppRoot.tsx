@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import SlideIndexProvider, {
   SlideIndexContext,
 } from "./Providers/SlideIndexProvider";
+import ModalStateProvider from "./Providers/ModalStateProvider";
+import Modal from "./Modal";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -14,9 +16,9 @@ interface Props {
 }
 
 const BGs = [
-  "coffee-bg-1.jpeg",
+  "coffe-cup.jpg",
   "work-bg.jpg",
-  "projects.jpg",
+  "black-coffee.jpg",
   "contact-bg.jpg",
 ];
 
@@ -52,26 +54,29 @@ const BackgroundImage = ({ index = 0 }: BackgroundImageProps) => {
 
 const AppRoot = ({ children }: Props) => {
   return (
-    <SlideIndexProvider>
-      <motion.main
-        initial={{ opacity: 0.0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className={cn(
-          rubik.className,
-          "antialiased",
-          "w-full",
-          "h-screen overflow-hidden hide-scrollbar relative z-[1]"
-        )}
-      >
-        <BackgroundImage />
-        {children}
-      </motion.main>
-    </SlideIndexProvider>
+    <ModalStateProvider>
+      <SlideIndexProvider>
+        <motion.main
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className={cn(
+            rubik.className,
+            "antialiased",
+            "w-full",
+            "h-screen overflow-hidden hide-scrollbar relative z-[1]"
+          )}
+        >
+          <BackgroundImage />
+          {children}
+        </motion.main>
+      </SlideIndexProvider>
+      <Modal />
+    </ModalStateProvider>
   );
 };
 
