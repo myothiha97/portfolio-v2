@@ -23,7 +23,6 @@ import { SlideIndexContext } from "../Providers/SlideIndexProvider";
 
 type PropType = {
   slides?: React.ReactNode[];
-  options?: EmblaOptionsType;
 };
 
 const OPTIONS: EmblaOptionsType = { axis: "y" };
@@ -34,14 +33,12 @@ const SECTIONS: React.ReactNode[] = [
   <Contact />,
 ];
 
-const EmblaCarousel: React.FC<PropType> = ({
-  slides = SECTIONS,
-  options = OPTIONS,
-}) => {
+const EmblaCarousel: React.FC<PropType> = ({ slides = SECTIONS }) => {
+  const [options, setOptions] = useState(OPTIONS);
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     WheelGesturesPlugin(),
   ]);
-  // const [selectedIndex, setSelectedIndex] = useState(0);
+
   const { slideIndex, setSlideIndex } = useContext(SlideIndexContext);
 
   const onSlideChange = () => {

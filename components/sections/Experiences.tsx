@@ -90,37 +90,32 @@ const Experiences = () => {
         collapsible
         className="w-full flex flex-col gap-5"
       >
-        {
-          // @ts-ignore
-          EXPERIENCES.map((experience, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-lg">
-                <div>
-                  <div className="flex flex-col">
-                    <h1 className="text-xl">{experience.title}</h1>
-                    <p className="text-lg">{experience.position}</p>
-                  </div>
-                  <div className="flex flex-col">
-                    <p className="text-base">Date - {experience.date}</p>
-                    <p className="text-base">
-                      Location - {experience.location}
-                    </p>
-                  </div>
+        {EXPERIENCES.map((experience, index) => (
+          <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionTrigger className="text-lg">
+              <div>
+                <div className="flex flex-col">
+                  <h1 className="text-xl">{experience.title}</h1>
+                  <p className="text-lg">{experience.position}</p>
                 </div>
-              </AccordionTrigger>
-              <AccordionContent className="text-base ">
-                <ul className="">
-                  {experience.fullDescription.map((desc, index) => (
-                    <li key={index} className="flex gap-x-3 last:mb-0 mb-2">
-                      <div>-</div>
-                      <span className="text-sm">{desc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </AccordionContent>
-            </AccordionItem>
-          ))
-        }
+                <div className="flex flex-col">
+                  <p className="text-base">Date - {experience.date}</p>
+                  <p className="text-base">Location - {experience.location}</p>
+                </div>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="text-base ">
+              <ul className="">
+                {experience.fullDescription.map((desc, index) => (
+                  <li key={index} className="flex gap-x-3 last:mb-0 mb-1">
+                    <div>-</div>
+                    <span className="text-sm">{desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
       </Accordion>
     </div>
   );
