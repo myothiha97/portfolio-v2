@@ -8,7 +8,7 @@ import React from "react";
 
 const EXPERIENCES = [
   {
-    title: "Codigo",
+    title: "Codigo - App Development Company in Singapore",
     position: "Senior web developer",
     description:
       "Codigo is a software company specializing in mobile and web app development.",
@@ -27,7 +27,7 @@ timely delivery of high-quality web applications.`,
     ],
   },
   {
-    title: "Rezerv",
+    title: "Rezerv - Fitness, Wellness & Spa Management Software",
     position: "web developer",
     description:
       "Codigo is a software company specializing in mobile and web app development.",
