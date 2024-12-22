@@ -19,7 +19,7 @@ export default {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           color: "#fffce1",
-          "color-2": "#faf6d4", // LSDF
+          "color-2": "#faf6d4",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -70,6 +70,8 @@ export default {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         shine: "shine var(--duration) infinite linear",
         aurora: "aurora 60s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         "border-beam": {
@@ -96,11 +98,28 @@ export default {
             "background-position": "0% 0%",
           },
         },
+        "accordion-down": {
+          from: {
+            height: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+          },
+        },
+        "accordion-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            height: "0",
+          },
+        },
       },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("daisyui"),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(

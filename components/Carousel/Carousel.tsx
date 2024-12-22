@@ -62,32 +62,39 @@ const EmblaCarousel: React.FC<PropType> = ({
   } = usePrevNextButtons(emblaApi);
 
   return (
-    <div className="embla">
+    <div className="w-screen">
       <NavPagination
         selectedIndex={selectedIndex}
-        className="fixed top-10 z-50"
+        className="fixed top-10 z-50 justify-end right-52"
         emblaApi={emblaApi}
       />
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
-          {slides.map((Section, index) => (
-            <PageSection
-              className={cn(
-                "embla__slide",
-                selectedIndex === index && "active"
-              )}
-              key={index}
-            >
-              <div className={cn("embla__slide__number")}>{Section}</div>
-            </PageSection>
-          ))}
+      <div className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {slides.map((Section, index) => (
+              <PageSection
+                className={cn(
+                  "embla__slide",
+                  selectedIndex === index && "active"
+                )}
+                key={index}
+              >
+                <div className={cn("embla__slide__number")}>{Section}</div>
+              </PageSection>
+            ))}
+          </div>
         </div>
-      </div>
-
-      <div className="embla__controls">
-        <div className="embla__buttons !flex flex-col !gap-y-5">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+        <div className="embla__controls">
+          <div className="embla__buttons !flex flex-col !gap-y-5">
+            <PrevButton
+              onClick={onPrevButtonClick}
+              disabled={prevBtnDisabled}
+            />
+            <NextButton
+              onClick={onNextButtonClick}
+              disabled={nextBtnDisabled}
+            />
+          </div>
         </div>
       </div>
     </div>
