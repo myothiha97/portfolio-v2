@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import {
   PrevButton,
@@ -19,6 +19,7 @@ import { cn } from "@/libs/utils/styles";
 
 import PageSection from "@/components/sections/PageSection";
 import NavPagination from "./NavPagniation";
+import { SlideIndexContext } from "../Providers/SlideIndexProvider";
 
 type PropType = {
   slides?: React.ReactNode[];
@@ -40,12 +41,13 @@ const EmblaCarousel: React.FC<PropType> = ({
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     WheelGesturesPlugin(),
   ]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  // const [selectedIndex, setSelectedIndex] = useState(0);
+  const { slideIndex, setSlideIndex } = useContext(SlideIndexContext);
 
   const onSlideChange = () => {
     if (!emblaApi) return;
     const selectedIndex = emblaApi.selectedScrollSnap();
-    setSelectedIndex(selectedIndex);
+    setSlideIndex(selectedIndex);
   };
 
   useEffect(() => {
@@ -64,7 +66,7 @@ const EmblaCarousel: React.FC<PropType> = ({
   return (
     <div className="w-screen">
       <NavPagination
-        selectedIndex={selectedIndex}
+        selectedIndex={slideIndex}
         className="fixed top-10 z-50 justify-end right-52"
         emblaApi={emblaApi}
       />
@@ -73,10 +75,7 @@ const EmblaCarousel: React.FC<PropType> = ({
           <div className="embla__container">
             {slides.map((Section, index) => (
               <PageSection
-                className={cn(
-                  "embla__slide",
-                  selectedIndex === index && "active"
-                )}
+                className={cn("embla__slide", slideIndex === index && "active")}
                 key={index}
               >
                 <div className={cn("embla__slide__number")}>{Section}</div>

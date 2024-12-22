@@ -104,9 +104,9 @@
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
-    outline: 0.5px solid currentColor;
+    outline: 1px solid currentColor;
   }
 }
 

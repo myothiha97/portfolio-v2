@@ -76,8 +76,8 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className={"w-full flex justify-center"}>
-      <div>
+    <div className={"w-full relative flex justify-center"}>
+      <div className="relative z-[1]">
         <div className={"flex gap-x-10 items-center min-h-[149px]"}>
           <h1>{myIntro}</h1>
           <Image
