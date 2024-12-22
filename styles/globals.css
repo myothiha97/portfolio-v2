@@ -13,7 +13,9 @@
   body {
     @apply bg-black text-primary-color;
   }
+
   :root {
+    --white: #fff;
     --background: 0 0% 100%;
 
     --foreground: 240 10% 3.9%;
@@ -135,6 +137,15 @@
   }
   .show {
     @apply opacity-100 visible;
+  }
+
+  .hide-scrollbar {
+    ::-webkit-scrollbar {
+      @apply w-2 bg-transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply bg-primary rounded-full;
+    }
   }
 }
 @layer base {
