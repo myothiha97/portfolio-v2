@@ -13,7 +13,12 @@ interface Props {
   children: React.ReactNode;
 }
 
-const BGs = ["coffee-bg-1.jpeg", "work-bg.jpg", "jobs.jpg", "contact-bg.jpg"];
+const BGs = [
+  "coffee-bg-1.jpeg",
+  "work-bg.jpg",
+  "projects.jpg",
+  "contact-bg.jpg",
+];
 
 type BackgroundImageProps = {
   index?: number;
@@ -24,10 +29,17 @@ const BackgroundImage = ({ index = 0 }: BackgroundImageProps) => {
   return (
     <>
       {BGs.map((bg, i) => (
-        <div
+        <motion.div
+          initial={{ opacity: 0.0 }}
+          animate={{ opacity: i === slideIndex ? 0.4 : 0 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            duration: 1.0,
+            ease: "easeInOut",
+          }}
           className={cn(
-            "bg-cover bg-center w-screen fixed h-screen top-0 transition-opacity duration-1000 z-[-1]",
-            i === slideIndex ? "opacity-40 visible" : "opacity-0 invisible"
+            "bg-cover bg-center w-screen fixed h-screen top-0 transition-opacity duration-1000 z-[-1]"
+            // i === slideIndex ? "opacity-40 visible" : "opacity-0 invisible"
           )}
           style={{
             backgroundImage: `url(/bgs/${bg})`,
