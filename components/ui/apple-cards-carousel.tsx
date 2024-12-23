@@ -27,6 +27,7 @@ type Card = {
   title: string;
   category: string;
   content: React.ReactNode;
+  description?: string;
 };
 
 export const CarouselContext = createContext<{
@@ -170,17 +171,12 @@ export const Card = ({
     openModal();
   };
 
-  // const handleClose = () => {
-  //   setContent(null);
-  //   closeModal();
-  // };
-
   return (
     <>
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 w-80 aspect-[3/4] overflow-hidden flex flex-col items-start justify-start relative z-10"
+        className="rounded-3xl  dark:bg-neutral-900 w-80 aspect-[3/4] overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
         <div className="relative z-40 p-8">
@@ -196,12 +192,21 @@ export const Card = ({
           >
             {card.title}
           </motion.p>
+          {card?.description && (
+            <motion.p
+              layoutId={layout ? `title-${card.title}` : undefined}
+              className="text-white text-base font-semibold max-w-xs text-left [text-wrap:balance] font-sans mt-2"
+            >
+              {card.description}
+            </motion.p>
+          )}
         </div>
+        <div className="absolute z-[9] inset-0 w-full h-full bg-black/25" />
         <BlurImage
           src={"/projects/" + card.src}
           alt={card.title}
           fill
-          className="object-cover absolute z-10 inset-0"
+          className="object-cover absolute z-[8] inset-0"
         />
       </motion.button>
     </>

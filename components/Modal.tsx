@@ -29,7 +29,7 @@ const Modal = () => {
   return (
     <dialog id="modal" className="modal">
       <div
-        className="w-[clamp(400px,50vw,600px)] relative bg-gray-900/90 overflow-scroll hide-scrollbar pt-5 pb-8 rounded-3xl mb-4"
+        className="w-[clamp(400px,50vw,600px)] relative bg-gray-900 overflow-scroll hide-scrollbar pt-5 pb-8 rounded-3xl mb-4"
         id="modal-content"
       >
         <div className="flex justify-end pr-5">
