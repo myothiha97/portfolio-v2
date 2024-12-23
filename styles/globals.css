@@ -140,11 +140,9 @@
   }
 
   .hide-scrollbar {
-    ::-webkit-scrollbar {
-      @apply w-2 bg-transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      @apply bg-primary rounded-full;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 }

@@ -21,19 +21,20 @@ import PageSection from "@/components/sections/PageSection";
 import NavPagination from "./NavPagniation";
 import { SlideIndexContext } from "../Providers/SlideIndexProvider";
 
-type PropType = {
-  slides?: React.ReactNode[];
-};
+type PropType = {};
 
 const OPTIONS: EmblaOptionsType = { axis: "y" };
-const SECTIONS: React.ReactNode[] = [
-  <Intro />,
-  <Experiences />,
-  <Projects />,
-  <Contact />,
-];
 
-const EmblaCarousel: React.FC<PropType> = ({ slides = SECTIONS }) => {
+const getSections = (slideIndex: number) => {
+  return [
+    <Intro />,
+    <Experiences />,
+    <Projects slideIndex={slideIndex} />,
+    <Contact />,
+  ];
+};
+
+const EmblaCarousel: React.FC<PropType> = () => {
   const [options, setOptions] = useState(OPTIONS);
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     WheelGesturesPlugin(),
@@ -59,6 +60,8 @@ const EmblaCarousel: React.FC<PropType> = ({ slides = SECTIONS }) => {
     onPrevButtonClick,
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
+
+  const slides = getSections(slideIndex);
 
   return (
     <div className="w-screen">
