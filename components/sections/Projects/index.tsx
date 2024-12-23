@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import ProjectCards from "./ProjectCards";
-import { SlideIndexContext } from "@/components/Providers/SlideIndexProvider";
 
 type Props = {
   slideIndex: number;
