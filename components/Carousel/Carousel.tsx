@@ -6,7 +6,6 @@ import {
   usePrevNextButtons,
 } from "./NavigationButtons";
 import useEmblaCarousel from "embla-carousel-react";
-import { WheelGesturesPlugin } from "embla-carousel-wheel-gestures";
 
 // sections
 import Intro from "@/components/sections/Intro";
@@ -30,15 +29,13 @@ const getSections = (slideIndex: number) => {
     <Intro />,
     <Experiences />,
     <Projects slideIndex={slideIndex} />,
-    <Contact />,
+    // <Contact />,
   ];
 };
 
 const EmblaCarousel: React.FC<PropType> = () => {
   const [options, setOptions] = useState(OPTIONS);
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    WheelGesturesPlugin(),
-  ]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { slideIndex, setSlideIndex } = useContext(SlideIndexContext);
 
@@ -67,7 +64,7 @@ const EmblaCarousel: React.FC<PropType> = () => {
     <div className="w-screen">
       <NavPagination
         selectedIndex={slideIndex}
-        className="fixed top-10 z-50 justify-end right-52"
+        className="fixed  z-50 justify-end right-20 top-5 2xl:right-52 2xl:top-10"
         emblaApi={emblaApi}
       />
       <div className="embla">

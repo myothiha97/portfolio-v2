@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
+    "@radix-ui/react-dialog": "^1.1.4",
     "@react-buddy/ide-toolbox-next": "^2.4.1",
     "@tabler/icons-react": "^3.26.0",
     "class-variance-authority": "^0.7.1",
@@ -25,7 +26,8 @@
     "sass": "^1.81.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "typewriter-effect": "^2.21.0"
+    "typewriter-effect": "^2.21.0",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",

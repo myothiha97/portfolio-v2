@@ -1,5 +1,7 @@
 import { cn } from "@/libs/utils/styles";
 import { EmblaCarouselType } from "embla-carousel";
+import { useContext } from "react";
+import { ModalStateContext } from "../Providers/ModalStateProvider";
 
 interface NavPaginationProps {
   emblaApi?: EmblaCarouselType;
@@ -14,6 +16,7 @@ const NavPagination = ({
   className,
   selectedIndex,
 }: NavPaginationProps) => {
+  const { setDrawer } = useContext(ModalStateContext);
   return (
     <div className={cn("flex w-full justify-center", className)}>
       <div className="flex gap-x-7 items-center">
@@ -24,7 +27,12 @@ const NavPagination = ({
               "rounded-full",
               selectedIndex === index ? "text-primary-color" : "text-gray-400"
             )}
-            onClick={() => emblaApi?.scrollTo(index)}
+            onClick={() => {
+              if (emblaApi && section !== "Contact") emblaApi?.scrollTo(index);
+              else {
+                setDrawer(true);
+              }
+            }}
           >
             {section}
           </button>

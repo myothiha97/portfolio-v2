@@ -79,7 +79,7 @@ const Intro = () => {
     <div className={"w-full relative flex justify-center"}>
       <div className="relative z-[1]">
         <div className={"flex gap-x-10 items-center min-h-[149px]"}>
-          <h1>{myIntro}</h1>
+          <h1 className="text-5xl">{myIntro}</h1>
           <Image
             src="/my-profile.jpg"
             alt="profile image"

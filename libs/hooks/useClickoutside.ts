@@ -6,17 +6,16 @@ export default function useOutsideClick(
 ) {
   useEffect(() => {
     const listener = (event: any) => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
+      if (ref.current && !ref?.current?.contains(event.target)) {
+        callback(event);
       }
-      callback(event);
     };
 
-    document.addEventListener("mousedown", listener);
+    document.addEventListener("click", listener);
     document.addEventListener("touchstart", listener);
 
     return () => {
-      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("click", listener);
       document.removeEventListener("touchstart", listener);
     };
   }, [ref, callback]);

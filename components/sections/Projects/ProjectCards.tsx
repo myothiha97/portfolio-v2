@@ -24,10 +24,8 @@ export default function ProjectCards() {
   );
 
   return (
-    <div className="w-full h-full pt-44">
-      <h2 className="text-xl md:text-5xl font-bold text-primary-color">
-        Projects
-      </h2>
+    <div className="w-full h-full lg:pt-10 2xl:pt-44">
+      <h2 className=" text-primary-color">Projects</h2>
       <Carousel items={cards} />
     </div>
   );

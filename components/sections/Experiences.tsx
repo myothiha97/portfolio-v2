@@ -84,7 +84,7 @@ advanced data analysis and predictive insights.`,
 const Experiences = () => {
   return (
     <div className="hide-scrollbar w-[clamp(400px,60vw,700px)]">
-      <h1 className="mb-10">Work Experiences</h1>
+      <h1 className="2xl:mb-10 mb-5">Work Experiences</h1>
       <Accordion
         type="single"
         collapsible
@@ -95,8 +95,8 @@ const Experiences = () => {
             <AccordionTrigger className="text-lg">
               <div>
                 <div className="flex flex-col">
-                  <h1 className="text-xl">{experience.title}</h1>
-                  <p className="text-lg">{experience.position}</p>
+                  <h1 className="text-lg 2xl:text-xl">{experience.title}</h1>
+                  <p className="text-base 2xl:text-lg">{experience.position}</p>
                 </div>
                 <div className="flex flex-col">
                   <p className="text-base">Date - {experience.date}</p>

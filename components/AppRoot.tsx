@@ -8,6 +8,7 @@ import SlideIndexProvider, {
 } from "./Providers/SlideIndexProvider";
 import ModalStateProvider from "./Providers/ModalStateProvider";
 import Modal from "./Modal";
+import Contact from "./sections/Contact";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -76,6 +77,7 @@ const AppRoot = ({ children }: Props) => {
         </motion.main>
       </SlideIndexProvider>
       <Modal />
+      <Contact />
     </ModalStateProvider>
   );
 };
