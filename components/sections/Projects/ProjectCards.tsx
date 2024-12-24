@@ -1,13 +1,15 @@
 "use client";
-import Image from "next/image";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import {
   AIAMyanmarContents,
   EsExpressContents,
+  KcutsContents,
   NeurogleeContents,
   RezervContents,
+  RWSContents,
   SevenElevenContents,
+  SPOTVContents,
   TrifectaContents,
   YogaMovementContents,
 } from "./contents";
@@ -58,7 +60,7 @@ const data = [
     content: <TrifectaContents />,
   },
   {
-    category: "Jan 2023 - Nov 2023",
+    category: "Mar 2024 - May 2024",
     title: "ES Express Asia",
     src: "es-express-1.png",
     content: <EsExpressContents />,
@@ -74,5 +76,23 @@ const data = [
     title: "AIA Myanmar CMS",
     src: "aia.png",
     content: <AIAMyanmarContents />,
+  },
+  {
+    category: "Nov 2022 - Jan 2023",
+    title: "Resorts World Sentosa, Singapore",
+    src: "rws.png",
+    content: <RWSContents />,
+  },
+  {
+    category: "Sep 2021 - Mar 2022",
+    title: "Kcuts CMS",
+    src: "kcuts-1.png",
+    content: <KcutsContents />,
+  },
+  {
+    category: "Apr 2024 - Sep 2024",
+    title: "SPOTV-NOW",
+    src: "spotv.png",
+    content: <SPOTVContents />,
   },
 ];

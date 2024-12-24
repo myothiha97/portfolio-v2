@@ -90,3 +90,45 @@ export const AIAMyanmarContents = () => {
     />
   );
 };
+
+export const RWSContents = () => {
+  return (
+    <ContentLayout
+      link="https://www.rwsentosa.com/en"
+      title="Resorts World Sentosa, Singapore"
+      duration="Feb 2024 - May 2024"
+      description="The RWS Singapore website was developed for one of Singapore's top destinations on Sentosa, showcasing attractions like Universal Studios Singapore, S.E.A. Aquarium, Adventure Cove Waterpark, six unique hotels, and exceptional dining experiences.
+The project encompassed the website, CMS, and mobile app, leveraging modern technologies such as Next.js, React.js, AngularJS, React Query, Recoil, TypeScript, Node.js, and Sass."
+      imgSrc="/projects/rws.png"
+    />
+  );
+};
+
+export const KcutsContents = () => {
+  return (
+    <ContentLayout
+      link="https://www.k-cuts.com"
+      title="Kcuts CMS"
+      duration="Sep 2021 - Mar 2022"
+      description="Kcuts is a korean hair-salon based in Singapore with many outlets.
+Kcuts CMS is a featureful portal to manage contents of different outlets of Kcuts.
+The portal was built by Typescript, Sass, React, React Query and Redux."
+      imgSrc="/projects/kcuts-1.png"
+    />
+  );
+};
+
+export const SPOTVContents = () => {
+  return (
+    <ContentLayout
+      title={"SPOTV-NOW"}
+      link="https://web-sea-stg.spotvnow.com"
+      duration="Apr 2024 - Sep 2024"
+      imgSrc="/projects/spotv.png"
+      description="SPOTV-NOW is a web app delivering South Korea's top sports streaming service to Southeast Asia, offering exclusive content live and on replay.
+It features live streams and playback of various sports channels, multiple subscription options (e.g., Seasonal Pass, Premium, Base), and an integrated online payment system for direct subscriptions. Authentication and authorization (login/logout) are also supported.
+The platform supports five languages: English, Indonesian, Malaysian, Chinese, and Thai. 
+It is built with Next.js, React.js, TypeScript, TailwindCSS, Recoil, and React Query, and integrates third-party services like Brightcove for video streaming, Datadog for analytics, and Stripe and 2C2P for payment processing."
+    />
+  );
+};
