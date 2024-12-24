@@ -25,7 +25,11 @@ const NavPagination = ({
             key={index}
             className={cn(
               "rounded-full",
-              selectedIndex === index ? "text-primary-color" : "text-gray-400"
+
+              selectedIndex === index ? "text-primary-color" : "text-gray-400",
+              section === "Contact"
+                ? "bg-primary-color text-black py-2 px-4 rounded-md font-semibold text-sm"
+                : ""
             )}
             onClick={() => {
               if (emblaApi && section !== "Contact") emblaApi?.scrollTo(index);
