@@ -1,16 +1,6 @@
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerClose, DrawerContent } from "@/components/ui/drawer";
 import React, { useContext, useEffect, useState } from "react";
 import { ModalStateContext } from "../Providers/ModalStateProvider";
-import useOutsideClick from "@/libs/hooks/useClickoutside";
 
 const CloseIcon = () => {
   return (

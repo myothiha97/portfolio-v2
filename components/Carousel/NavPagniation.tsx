@@ -2,6 +2,8 @@ import { cn } from "@/libs/utils/styles";
 import { EmblaCarouselType } from "embla-carousel";
 import { useContext } from "react";
 import { ModalStateContext } from "../Providers/ModalStateProvider";
+import ContactModal from "../sections/ContactModal";
+import { openModal } from "@/libs/utils/ui";
 
 interface NavPaginationProps {
   emblaApi?: EmblaCarouselType;
@@ -16,7 +18,7 @@ const NavPagination = ({
   className,
   selectedIndex,
 }: NavPaginationProps) => {
-  const { setDrawer } = useContext(ModalStateContext);
+  const { setContent } = useContext(ModalStateContext);
   return (
     <div className={cn("flex w-full justify-center", className)}>
       <div className="flex gap-x-7 items-center">
@@ -34,7 +36,8 @@ const NavPagination = ({
             onClick={() => {
               if (emblaApi && section !== "Contact") emblaApi?.scrollTo(index);
               else {
-                setDrawer(true);
+                setContent(<ContactModal />);
+                openModal();
               }
             }}
           >

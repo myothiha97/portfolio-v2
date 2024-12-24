@@ -1,5 +1,6 @@
 import useModal from "@/libs/hooks/useModal";
 import { closeModal } from "@/libs/utils/ui";
+import { AnimatePresence, motion } from "framer-motion";
 
 const CloseIcon = () => {
   return (
@@ -25,18 +26,27 @@ const CloseIcon = () => {
 
 const Modal = () => {
   const { content } = useModal();
+  console.log({ content });
 
   return (
     <dialog id="modal" className="modal">
-      <div
-        className="w-[clamp(400px,50vw,600px)] relative bg-gray-900 overflow-scroll hide-scrollbar pt-5 pb-8 rounded-3xl mb-4"
-        id="modal-content"
-      >
-        <div className="flex justify-end pr-5">
-          <CloseIcon />
-        </div>
-        {content}
-      </div>
+      <AnimatePresence>
+        {content && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3 }}
+            className="w-[clamp(400px,50vw,600px)] relative bg-gray-900 overflow-scroll hide-scrollbar pt-5 pb-8 rounded-3xl mb-4"
+            id="modal-content"
+          >
+            <div className="flex justify-end pr-5">
+              <CloseIcon />
+            </div>
+            {content}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </dialog>
   );
 };
