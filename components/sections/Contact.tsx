@@ -118,9 +118,7 @@ const Contact = () => {
           </DrawerClose>
           <h1 className="text-2xl text-center">Contact</h1>
           <div className="flex flex-col gap-4">
-            <ContactItem icon={<Mail width={10} height={10} />} title="Email">
-              mthk97.dev@gmail.com
-            </ContactItem>
+            <ContactItem title="Email">mthk97.dev@gmail.com</ContactItem>
             <ContactItem title="Phone">+6627033226</ContactItem>
             <ContactItem title="Address">Chaing Mai, Thailand</ContactItem>
             <ContactItem title="Linkedin">
