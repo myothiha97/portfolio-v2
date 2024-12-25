@@ -9,6 +9,7 @@ import SlideIndexProvider, {
 import ModalStateProvider from "./Providers/ModalStateProvider";
 import Modal from "./Modal";
 import Contact from "./sections/Contact";
+import { Copyright } from "lucide-react";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "700"] });
 

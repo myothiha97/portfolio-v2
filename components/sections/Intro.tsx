@@ -3,6 +3,7 @@ import Image from "next/image";
 import useTypewriter from "@/libs/hooks/useTypewriter";
 import React, { useEffect, useState } from "react";
 import { cn } from "@/libs/utils/styles";
+import { Copyright } from "lucide-react";
 
 type BadgeProps = {
   text: string;
@@ -39,6 +40,17 @@ const TECHS = [
   "Technical documentation",
   "Version Control",
 ];
+
+const CopyRight = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("", className)}>
+      <p className="flex items-start gap-1 text-xs">
+        <Copyright width={10} height={10} />
+        {new Date().getFullYear()} CopyRight, Myo Thiha Kyaw
+      </p>
+    </div>
+  );
+};
 
 const displayContentsAsync = (action: Function, delay = 400): any => {
   return new Promise((resolve) => {
@@ -115,6 +127,7 @@ const Intro = () => {
           ))}
         </div>
       </div>
+      <CopyRight className="fixed bottom-10 left-20" />
     </div>
   );
 };
