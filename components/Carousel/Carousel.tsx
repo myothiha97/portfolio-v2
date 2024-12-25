@@ -60,7 +60,7 @@ const EmblaCarousel: React.FC<PropType> = () => {
   const slides = getSections(slideIndex);
 
   return (
-    <div className="w-screen">
+    <div className="w-screen hidden sm:block">
       <NavPagination
         selectedIndex={slideIndex}
         className="fixed z-50 justify-end right-20 top-5 2xl:right-52 2xl:top-10"

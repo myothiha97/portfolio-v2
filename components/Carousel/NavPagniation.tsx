@@ -20,7 +20,7 @@ const NavPagination = ({
 }: NavPaginationProps) => {
   const { setContent } = useContext(ModalStateContext);
   return (
-    <div className={cn("flex w-full justify-center", className)}>
+    <div className={cn("w-full justify-center hidden sm:flex", className)}>
       <div className="flex gap-x-7 items-center">
         {SECTIONS.map((section, index) => (
           <button

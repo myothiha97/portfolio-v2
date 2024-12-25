@@ -10,6 +10,8 @@ import ModalStateProvider from "./Providers/ModalStateProvider";
 import Modal from "./Modal";
 import Contact from "./sections/Contact";
 import { Copyright } from "lucide-react";
+import MobileMenu from "./MobileMenu/index";
+import { slideInMotionVariants } from "@/libs/utils/ui";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -58,19 +60,21 @@ const AppRoot = ({ children }: Props) => {
   return (
     <ModalStateProvider>
       <SlideIndexProvider>
+        <MobileMenu />
         <motion.main
-          initial={{ opacity: 0.0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
+          initial={"slideOut"}
+          whileInView={"slideIn"}
+          // transition={{
+          //   delay: 0.3,
+          //   duration: 0.8,
+          //   ease: "easeInOut",
+          // }}
+          variants={slideInMotionVariants}
           className={cn(
             rubik.className,
             "antialiased",
             "w-full",
-            "h-screen overflow-hidden hide-scrollbar relative z-[1]"
+            "h-screen overflow-hidden hide-scrollbar relative z-[1] sm:pt-0 pt-20"
           )}
         >
           <BackgroundImage />

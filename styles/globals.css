@@ -124,7 +124,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold lg:text-3xl 2xl:text-5xl;
+    @apply font-bold text-2xl lg:text-3xl 2xl:text-5xl;
   }
   p,
   span {

@@ -4,6 +4,7 @@ import useTypewriter from "@/libs/hooks/useTypewriter";
 import React, { useEffect, useState } from "react";
 import { cn } from "@/libs/utils/styles";
 import { Copyright } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type BadgeProps = {
   text: string;
@@ -66,7 +67,6 @@ const Intro = () => {
   const [displayBodyText, setDisplayBodyText] = useState(false);
   const [displayTechs, setDisplayTechs] = useState(false);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
-  const position = "Senior Web Developer";
   const myIntro = useTypewriter({
     text: "Hi, I am Myothiha!",
     speed: 60,
@@ -104,7 +104,6 @@ const Intro = () => {
             )}
           />
         </div>
-
         <p
           className={cn(
             "mt-5 max-w-2xl hide transition-opacity duration-1000",
