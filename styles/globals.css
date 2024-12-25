@@ -128,7 +128,7 @@
   }
   p,
   span {
-    @apply text-xl font-normal;
+    @apply text-xl font-normal leading-tight  sm:leading-snug;
   }
 }
 @layer utilities {

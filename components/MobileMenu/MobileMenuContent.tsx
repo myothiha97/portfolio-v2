@@ -5,10 +5,10 @@ import { X } from "lucide-react";
 import Link from "next/link";
 
 const MenuItems = [
-  { name: "Intro", url: "/" },
-  { name: "Experiences", url: "/experiences" },
-  { name: "Projects", url: "/projects" },
-  { name: "Contact", url: "/contact" },
+  { name: "Intro", url: `/?bgIndex=0` },
+  { name: "Experiences", url: "/experiences?bgIndex=1" },
+  { name: "Projects", url: "/projects?bgIndex=2" },
+  { name: "Contact", url: "/contact?bgIndex=3" },
 ];
 
 const MobileMenuContent = () => {

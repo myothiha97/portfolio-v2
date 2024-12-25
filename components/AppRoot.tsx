@@ -12,6 +12,7 @@ import Contact from "./sections/Contact";
 import { Copyright } from "lucide-react";
 import MobileMenu from "./MobileMenu/index";
 import { slideInMotionVariants } from "@/libs/utils/ui";
+import { useRouter } from "next/router";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -32,12 +33,17 @@ type BackgroundImageProps = {
 
 const BackgroundImage = ({ index = 0 }: BackgroundImageProps) => {
   const { slideIndex } = useContext(SlideIndexContext);
+  const router = useRouter();
+  const bgIndex = router.query?.bgIndex;
+  const bgIndexFromURL = bgIndex ? parseInt(bgIndex as string) : undefined;
+  const currentIndex = bgIndexFromURL || slideIndex;
+
   return (
     <>
       {BGs.map((bg, i) => (
         <motion.div
           initial={{ opacity: 0.0 }}
-          animate={{ opacity: i === slideIndex ? 0.4 : 0 }}
+          animate={{ opacity: i === currentIndex ? 0.4 : 0 }}
           exit={{ opacity: 0 }}
           transition={{
             duration: 1.0,
@@ -74,7 +80,7 @@ const AppRoot = ({ children }: Props) => {
             rubik.className,
             "antialiased",
             "w-full",
-            "h-screen overflow-hidden hide-scrollbar relative z-[1] sm:pt-0 pt-20"
+            "h-screen overflow-hidden hide-scrollbar relative z-[1] sm:pt-0 pt-14"
           )}
         >
           <BackgroundImage />

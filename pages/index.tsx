@@ -22,7 +22,7 @@ export default function Home() {
         {loading ? <Loading /> : <Carousel />}
       </div>
       <AnimatePresence>
-        <SlideIn>
+        <SlideIn className="sm:hidden">
           <Intro />
         </SlideIn>
       </AnimatePresence>

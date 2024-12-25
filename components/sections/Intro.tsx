@@ -4,7 +4,6 @@ import useTypewriter from "@/libs/hooks/useTypewriter";
 import React, { useEffect, useState } from "react";
 import { cn } from "@/libs/utils/styles";
 import { Copyright } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
 
 type BadgeProps = {
   text: string;
@@ -67,6 +66,7 @@ const Intro = () => {
   const [displayBodyText, setDisplayBodyText] = useState(false);
   const [displayTechs, setDisplayTechs] = useState(false);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
+
   const myIntro = useTypewriter({
     text: "Hi, I am Myothiha!",
     speed: 60,
@@ -89,9 +89,9 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className={"w-full relative flex justify-center"}>
-      <div className="relative z-[1]">
-        <div className={"flex gap-x-10 items-center min-h-[149px]"}>
+    <div className={"w-full relative sm:flex justify-center"}>
+      <div className="sm:px-0 px-5 relative z-[1]">
+        <div className={" gap-x-10 items-center min-h-[149px] hidden sm:flex"}>
           <h1 className="text-5xl">{myIntro}</h1>
           <Image
             src="/my-profile.jpg"
@@ -104,10 +104,23 @@ const Intro = () => {
             )}
           />
         </div>
+        <div className="sm:hidden flex flex-col gap-3">
+          <Image
+            src="/my-profile.jpg"
+            alt="profile image"
+            width={100}
+            height={100}
+            className={cn(
+              "rounded-full border-4 border-primary-color sm:opacity-0 sm:invisible transition-opacity duration-500",
+              displayImage && "sm:opacity-100 sm:visible"
+            )}
+          />
+          <h1>Hi, I am Myothiha!</h1>
+        </div>
         <p
           className={cn(
-            "mt-5 max-w-2xl hide transition-opacity duration-1000",
-            displayBodyText && "show"
+            "mt-3 sm:mt-5 max-w-2xl text-base sm:text-xl sm:hide transition-opacity duration-1000",
+            displayBodyText && "sm:show"
           )}
         >
           I am a professional web developer with over five years of experience
@@ -117,8 +130,8 @@ const Intro = () => {
         </p>
         <div
           className={cn(
-            "flex mt-5 flex-wrap gap-x-4 gap-y-3 max-w-2xl hide transition-opacity duration-1000",
-            displayTechs && "show"
+            "flex mt-5 flex-wrap gap-x-2 sm:gap-x-4 gap-y-3 max-w-2xl sm:hide transition-opacity duration-1000",
+            displayTechs && "sm:show"
           )}
         >
           {TECHS.map((tech, index) => (
@@ -126,7 +139,7 @@ const Intro = () => {
           ))}
         </div>
       </div>
-      <CopyRight className="fixed bottom-10 left-20" />
+      <CopyRight className="px-5 mt-5 sm:fixed sm:bottom-20" />
     </div>
   );
 };

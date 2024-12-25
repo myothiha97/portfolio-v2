@@ -2,18 +2,22 @@ import React, { useContext } from "react";
 import MobileMenuProvider, { MobileMenuContext } from "./MobileMenuProvider";
 import { Menu } from "lucide-react";
 import MobileMenuContent from "./MobileMenuContent";
+import { useRouter } from "next/router";
 
 const MobileMenuTrigger = (params) => {
   const { open, setOpen } = useContext(MobileMenuContext);
   const onClickMenu = () => {
     setOpen(true);
   };
+  const router = useRouter();
+  const path = router.pathname;
+  const pageTitle = path === "/" ? "Intro" : router.query.title;
+
   return (
-    <nav
-      className="bg-primary-color text-black w-screen py-3 items-center fixed top-0 z-40 cursor-pointer sm:hidden"
-      onClick={onClickMenu}
-    >
-      <Menu className="absolute left-0 top-1/2 transform -translate-y-1/2"></Menu>
+    <nav className="bg-transparent text-black pl-5 w-screen py-3 items-center fixed top-0 z-40 cursor-pointer sm:hidden">
+      <button onClick={onClickMenu}>
+        <Menu className="cursor-pointer  text-primary-color"></Menu>
+      </button>
       <p className="text-lg text-center">Menu</p>
     </nav>
   );
