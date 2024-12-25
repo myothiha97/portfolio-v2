@@ -10,7 +10,6 @@ import useEmblaCarousel from "embla-carousel-react";
 // sections
 import Intro from "@/components/sections/Intro";
 import Projects from "@/components/sections/Projects";
-import Contact from "@/components/sections/Contact";
 import Experiences from "@/components/sections/Experiences";
 
 // utils
@@ -64,7 +63,7 @@ const EmblaCarousel: React.FC<PropType> = () => {
     <div className="w-screen">
       <NavPagination
         selectedIndex={slideIndex}
-        className="fixed  z-50 justify-end right-20 top-5 2xl:right-52 2xl:top-10"
+        className="fixed z-50 justify-end right-20 top-5 2xl:right-52 2xl:top-10"
         emblaApi={emblaApi}
       />
       <div className="embla">

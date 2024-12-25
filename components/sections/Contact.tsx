@@ -1,6 +1,7 @@
 import { Drawer, DrawerClose, DrawerContent } from "@/components/ui/drawer";
 import React, { useContext, useEffect, useState } from "react";
 import { ModalStateContext } from "../Providers/ModalStateProvider";
+import { Mail } from "lucide-react";
 
 const CloseIcon = () => {
   return (
@@ -44,9 +45,14 @@ const CopySVG = () => {
 
 type RowProps = {
   children: React.ReactNode;
+  icon: React.ReactNode;
 };
 
-const ContactItem = ({ title, children }: RowProps & { title: string }) => {
+const ContactItem = ({
+  title,
+  children,
+  icon,
+}: RowProps & { title: string }) => {
   const [copied, setCopied] = useState(false);
   const text = typeof children === "string" ? children : "";
   const onClickText = () => {
@@ -61,21 +67,23 @@ const ContactItem = ({ title, children }: RowProps & { title: string }) => {
   };
   return (
     <div className="grid grid-cols-1 w-fit">
-      <h2 className="text-lg font-bold">{title}</h2>
-      {typeof children === "string" ? (
-        <div
-          className="text-base flex items-center gap-5 group cursor-pointer "
-          onClick={onClickText}
-        >
-          <p className="hover:underline text-left text-lg">{children}</p>
-
-          <div className="visible opacity-0 group-hover:opacity-100 text-sm transition duration-500">
-            {copied ? "Copied!" : <CopySVG />}
+      <div className="flex gap-3">
+        {icon}
+        <h2 className="text-lg font-bold">{title}</h2>
+        {typeof children === "string" ? (
+          <div
+            className="text-base flex items-center gap-5 group cursor-pointer "
+            onClick={onClickText}
+          >
+            <p className="hover:underline text-left text-lg">{children}</p>
+            <div className="visible opacity-0 group-hover:opacity-100 text-sm transition duration-500">
+              {copied ? "Copied!" : <CopySVG />}
+            </div>
           </div>
-        </div>
-      ) : (
-        children
-      )}
+        ) : (
+          children
+        )}
+      </div>
     </div>
   );
 };
@@ -116,7 +124,9 @@ const Contact = () => {
           </DrawerClose>
           <h1 className="text-2xl text-center">Contact</h1>
           <div className="flex flex-col gap-4">
-            <ContactItem title="Email">mthk97.dev@gmail.com</ContactItem>
+            <ContactItem icon={<Mail width={10} height={10} />} title="Email">
+              mthk97.dev@gmail.com
+            </ContactItem>
             <ContactItem title="Phone">+6627033226</ContactItem>
             <ContactItem title="Address">Chaing Mai, Thailand</ContactItem>
             <ContactItem title="Linkedin">

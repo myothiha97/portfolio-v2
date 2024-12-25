@@ -5,7 +5,7 @@
   --slide-spacing: 1rem;
   --slide-size: 100%;
 
-  @apply lg:max-w-4xl xl:max-w-5xl 2xl:max-w-[1500px] 3xl:max-w-[1600px];
+  @apply lg:max-w-4xl xl:max-w-6xl 2xl:max-w-[1500px] 3xl:max-w-[1600px];
 }
 
 .embla__viewport {

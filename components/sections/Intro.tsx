@@ -54,6 +54,7 @@ const Intro = () => {
   const [displayBodyText, setDisplayBodyText] = useState(false);
   const [displayTechs, setDisplayTechs] = useState(false);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
+  const position = "Senior Web Developer";
   const myIntro = useTypewriter({
     text: "Hi, I am Myothiha!",
     speed: 60,
@@ -101,7 +102,7 @@ const Intro = () => {
           I am a professional web developer with over five years of experience
           designing and implementing diverse web applications, from simple
           static sites to dynamic, large-scale, and high-performance platforms.
-          Below are some of the technologies I have worked with:
+          Below are the technologies I have worked with:
         </p>
         <div
           className={cn(
