@@ -1,7 +1,7 @@
 import React from "react";
 import { AuroraBackground } from "../ui/aurora-background";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils/styles";
 
 interface Props {
   className?: string;

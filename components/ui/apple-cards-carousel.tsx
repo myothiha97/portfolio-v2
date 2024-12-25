@@ -10,7 +10,7 @@ import {
   IconArrowNarrowRight,
   IconX,
 } from "@tabler/icons-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils/styles";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import useOutsideClick from "@/libs/hooks/useClickoutside";
