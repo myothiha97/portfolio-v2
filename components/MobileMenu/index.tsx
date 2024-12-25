@@ -11,14 +11,12 @@ const MobileMenuTrigger = (params) => {
   };
   const router = useRouter();
   const path = router.pathname;
-  const pageTitle = path === "/" ? "Intro" : router.query.title;
 
   return (
     <nav className="bg-transparent text-black pl-5 w-screen py-3 items-center fixed top-0 z-40 cursor-pointer sm:hidden">
       <button onClick={onClickMenu}>
         <Menu className="cursor-pointer  text-primary-color"></Menu>
       </button>
-      <p className="text-lg text-center">Menu</p>
     </nav>
   );
 };
