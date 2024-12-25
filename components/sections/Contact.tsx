@@ -45,14 +45,9 @@ const CopySVG = () => {
 
 type RowProps = {
   children: React.ReactNode;
-  icon: React.ReactNode;
 };
 
-const ContactItem = ({
-  title,
-  children,
-  icon,
-}: RowProps & { title: string }) => {
+const ContactItem = ({ title, children }: RowProps & { title: string }) => {
   const [copied, setCopied] = useState(false);
   const text = typeof children === "string" ? children : "";
   const onClickText = () => {
@@ -68,7 +63,6 @@ const ContactItem = ({
   return (
     <div className="grid grid-cols-1 w-fit">
       <div className="flex gap-3">
-        {icon}
         <h2 className="text-lg font-bold">{title}</h2>
         {typeof children === "string" ? (
           <div
