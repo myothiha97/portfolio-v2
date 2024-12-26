@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>Myo Thiha Kyaw - Senior Web developer</title>
+        <link rel="icon" href="/android-chrome-192x192.png" />
       </Head>
 
       <body className="antialiased">
