@@ -19,7 +19,7 @@ const ContentLayout = ({
 }: ContentLayoutProps) => {
   return (
     <div className=" text-primary-color">
-      <h1 className="mb-5 px-8 text-3xl">{title}</h1>
+      <h1 className="mb-5 px-8 text-xl sm:text-3xl">{title}</h1>
       <div className="flex px-8">
         <div className="relative w-[300px] aspect-[16/10]">
           <Image

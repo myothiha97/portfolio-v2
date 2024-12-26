@@ -7,9 +7,8 @@ import SlideIndexProvider, {
   SlideIndexContext,
 } from "./Providers/SlideIndexProvider";
 import ModalStateProvider from "./Providers/ModalStateProvider";
-import Modal from "./Modal";
+import Modal, { MobileModal } from "./Modal";
 import Contact from "./sections/Contact";
-import { Copyright } from "lucide-react";
 import MobileMenu from "./MobileMenu/index";
 import { slideInMotionVariants } from "@/libs/utils/ui";
 import { useRouter } from "next/router";
@@ -51,7 +50,6 @@ const BackgroundImage = ({ index = 0 }: BackgroundImageProps) => {
           }}
           className={cn(
             "bg-cover bg-center w-screen fixed h-screen top-0 transition-opacity duration-1000 z-[-1]"
-            // i === slideIndex ? "opacity-40 visible" : "opacity-0 invisible"
           )}
           style={{
             backgroundImage: `url(/bgs/${bg})`,
@@ -65,22 +63,18 @@ const BackgroundImage = ({ index = 0 }: BackgroundImageProps) => {
 const AppRoot = ({ children }: Props) => {
   return (
     <ModalStateProvider>
+      <MobileModal />
       <SlideIndexProvider>
         <MobileMenu />
         <motion.main
           initial={"slideOut"}
           whileInView={"slideIn"}
-          // transition={{
-          //   delay: 0.3,
-          //   duration: 0.8,
-          //   ease: "easeInOut",
-          // }}
           variants={slideInMotionVariants}
           className={cn(
             rubik.className,
             "antialiased",
             "w-full",
-            "h-screen overflow-hidden hide-scrollbar relative z-[1] sm:pt-0 pt-14"
+            "h-screen overflow-scroll sm:overflow-hidden hide-scrollbar relative z-[1] sm:pt-0 pt-16"
           )}
         >
           <BackgroundImage />

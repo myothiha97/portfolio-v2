@@ -28,20 +28,22 @@ const CopySVG = () => {
   );
 };
 
-type RowProps = {
+type ContactItemProps = {
   children: React.ReactNode;
   icon: React.ReactNode;
+  disabledAutoCopy?: boolean;
 };
 
-const ContactItem = ({
+export const ContactItem = ({
   title,
   children,
   icon,
-}: RowProps & { title: string }) => {
+  disabledAutoCopy,
+}: ContactItemProps & { title: string }) => {
   const [copied, setCopied] = useState(false);
   const text = typeof children === "string" ? children : "";
   const onClickText = () => {
-    if (navigator?.clipboard) {
+    if (navigator?.clipboard && !disabledAutoCopy) {
       navigator.clipboard.writeText(text).then(() => {
         setCopied(true);
         setTimeout(() => {
@@ -62,9 +64,11 @@ const ContactItem = ({
               onClick={onClickText}
             >
               <p className="hover:underline text-left text-lg">{children}</p>
-              <div className="visible opacity-0 group-hover:opacity-100 text-sm transition duration-500">
-                {copied ? "Copied!" : <CopySVG />}
-              </div>
+              {!disabledAutoCopy && (
+                <div className="visible opacity-0 group-hover:opacity-100 text-sm transition duration-500">
+                  {copied ? "Copied!" : <CopySVG />}
+                </div>
+              )}
             </div>
           ) : (
             children

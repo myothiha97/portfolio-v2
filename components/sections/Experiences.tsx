@@ -83,7 +83,7 @@ advanced data analysis and predictive insights.`,
 
 const Experiences = () => {
   return (
-    <div className="hide-scrollbar w-[clamp(400px,60vw,700px)]">
+    <div className="hide-scrollbar sm:w-[clamp(400px,60vw,700px)] sm:px-0 px-5">
       <h1 className="2xl:mb-10 mb-5">Work Experiences</h1>
       <Accordion
         type="single"
@@ -92,11 +92,15 @@ const Experiences = () => {
       >
         {EXPERIENCES.map((experience, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-lg">
+            <AccordionTrigger className="text-base sm:text-lg">
               <div>
-                <div className="flex flex-col">
-                  <h1 className="text-lg 2xl:text-xl">{experience.title}</h1>
-                  <p className="text-base 2xl:text-lg">{experience.position}</p>
+                <div className="flex flex-col gap-1">
+                  <h1 className="leading-tight sm:leading-snug text-lg 2xl:text-xl">
+                    {experience.title}
+                  </h1>
+                  <p className="leading-tight sm:leading-snug text-base 2xl:text-lg">
+                    {experience.position}
+                  </p>
                 </div>
                 <div className="flex flex-col">
                   <p className="text-base">Date - {experience.date}</p>

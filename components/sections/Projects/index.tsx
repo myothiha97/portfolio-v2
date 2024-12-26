@@ -1,11 +1,11 @@
 import ProjectCards from "./ProjectCards";
 
 type Props = {
-  slideIndex: number;
+  // slideIndex: number;
 };
 
-const Projects = ({ slideIndex }: Props) => {
-  return slideIndex === 2 ? <ProjectCards /> : null;
+const Projects = () => {
+  return <ProjectCards />;
 };
 
 export default Projects;

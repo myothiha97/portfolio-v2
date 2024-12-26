@@ -24,9 +24,45 @@ const CloseIcon = () => {
   );
 };
 
+export const MobileModal = () => {
+  const { content, setContent } = useModal();
+  const closeModal = () => {
+    setContent(null);
+  };
+  return (
+    <AnimatePresence>
+      {content && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed z-[99999] w-screen h-screen flex items-end bg-black/65"
+          onClick={closeModal}
+        >
+          <motion.div
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ duration: 0.4, type: "tween", ease: "easeInOut" }}
+            className="sm:hidden bg-gray-900 overflow-scroll hide-scrollbar pt-5 pb-8"
+            id="modal-content"
+          >
+            <div className="flex justify-end pr-5">
+              <button onClick={closeModal}>
+                <CloseIcon />
+              </button>
+            </div>
+            {content}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 const Modal = () => {
   const { content } = useModal();
-  console.log({ content });
 
   return (
     <dialog id="modal" className="modal">
