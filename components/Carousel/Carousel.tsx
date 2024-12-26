@@ -27,7 +27,7 @@ const getSections = (slideIndex: number) => {
   return [
     <Intro />,
     <Experiences />,
-    <Projects slideIndex={slideIndex} />,
+    <Projects />,
     // <Contact />,
   ];
 };
