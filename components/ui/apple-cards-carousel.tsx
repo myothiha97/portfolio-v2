@@ -107,7 +107,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
           <div
             className={cn(
-              "flex flex-row justify-start gap-4 sm:pl-4"
+              "flex flex-col w-full sm:w-auto sm:flex-row justify-start gap-4 sm:pl-4"
               // "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
             )}
           >
@@ -136,7 +136,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           </div>
         </div>
       </div>
-      <div className="flex gap-2 sm:pl-0 pl-2">
+      <div className="hidden gap-2 sm:flex sm:pl-0 pl-2">
         <button
           className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
           onClick={scrollLeft}
@@ -184,10 +184,10 @@ export const Card = ({
           scale: 1.03,
           transition: { duration: 0.2 },
         }}
-        className="rounded-3xl w-60 sm:w-72 2xl:w-80 aspect-[3/4] overflow-hidden flex flex-col items-start justify-start relative z-10"
+        className="rounded-3xl w-full sm:w-72 2xl:w-80 aspect-square sm:aspect-[3/4] overflow-hidden flex flex-col items-start justify-start relative z-10"
       >
         <div className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
-        <div className="relative z-40 p-8">
+        <div className="relative z-40 px-5 py-8 sm:p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
             className="text-white text-sm md:text-base font-medium font-sans text-left"

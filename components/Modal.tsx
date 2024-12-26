@@ -46,7 +46,6 @@ export const MobileModal = () => {
             exit={{ y: "100%" }}
             transition={{ duration: 0.4, type: "tween", ease: "easeInOut" }}
             className="sm:hidden bg-gray-900 overflow-scroll hide-scrollbar pt-5 pb-8"
-            id="modal-content"
           >
             <div className="flex justify-end pr-5">
               <button onClick={closeModal}>

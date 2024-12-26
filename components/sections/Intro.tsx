@@ -64,6 +64,7 @@ const displayContentsAsync = (action: Function, delay = 400): any => {
 const Intro = () => {
   const [displayImage, setDisplayImage] = useState(false);
   const [displayBodyText, setDisplayBodyText] = useState(false);
+  const [displayTitle, setDisplayTitle] = useState(false);
   const [displayTechs, setDisplayTechs] = useState(false);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
@@ -92,7 +93,9 @@ const Intro = () => {
     <div className={"w-full relative sm:flex justify-center"}>
       <div className="sm:px-0 px-5 relative z-[1]">
         <div className={" gap-x-10 items-center min-h-[149px] hidden sm:flex"}>
-          <h1 className="text-5xl">{myIntro}</h1>
+          <div className="flex flex-col gap-2">
+            <h1 className="text-5xl">{myIntro}</h1>
+          </div>
           <Image
             src="/my-profile.jpg"
             alt="profile image"
@@ -126,7 +129,7 @@ const Intro = () => {
           I am a professional web developer with over five years of experience
           designing and implementing diverse web applications, from simple
           static sites to dynamic, large-scale, and high-performance platforms.
-          Below are the technologies I have worked with:
+          Below are the skills and technologies I have worked with:
         </p>
         <div
           className={cn(
@@ -139,7 +142,7 @@ const Intro = () => {
           ))}
         </div>
       </div>
-      <CopyRight className="px-5 mt-5 sm:fixed sm:bottom-20" />
+      {/* <CopyRight className="px-5 mt-5 sm:fixed sm:bottom-20" /> */}
     </div>
   );
 };

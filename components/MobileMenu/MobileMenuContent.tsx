@@ -41,15 +41,15 @@ const MobileMenuContent = () => {
           <hr className="border-primary-color mb-5" />
           <ul>
             {MenuItems.map((item, index) => (
-              <li key={index} className="mb-7 text-center">
-                <Link
-                  href={item.url}
-                  className="text-2xl font-semibold "
-                  onClick={() => setOpen(false)}
-                >
+              <Link
+                href={item.url}
+                className="text-2xl font-semibold "
+                onClick={() => setOpen(false)}
+              >
+                <li key={index} className="mb-7 text-center">
                   {item.name}
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
         </motion.div>
