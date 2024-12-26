@@ -92,7 +92,7 @@ export default function ContactModal() {
           mthk97.dev@gmail.com
         </ContactItem>
         <ContactItem icon={<Phone />} title="Phone">
-          +6627033226
+          +66927033226
         </ContactItem>
         <ContactItem icon={<Github />} title="Github">
           https://github.com/myothiha97

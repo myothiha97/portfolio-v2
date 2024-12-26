@@ -32,7 +32,7 @@ export default function ContactPage() {
             }
             title="Phone"
           >
-            +6627033226
+            +66927033226
           </ContactItem>
           <ContactItem
             icon={
