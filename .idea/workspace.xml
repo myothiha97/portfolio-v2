@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a3aaf55-ca70-452a-a64a-ae6b2d67734d" name="Changes" comment="feat: shadcnUI config and button effect" />
+    <list default="true" id="9a3aaf55-ca70-452a-a64a-ae6b2d67734d" name="Changes" comment="feat: shadcnUI config and button effect">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Button.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,22 +19,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "myothiha97"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;myothiha97&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:myothiha97/portfolio-v2.git",
-    "accountId": "21ba215a-c179-452f-8e5c-0fad27217a60"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:myothiha97/portfolio-v2.git&quot;,
+    &quot;accountId&quot;: &quot;21ba215a-c179-452f-8e5c-0fad27217a60&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2qYdpUWEBgj9qMpnraM8axF6ZwL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,7 +51,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "/Users/mtkh97/.nvm/versions/node/v20.11.0/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "settings.editor.selected.configurable": "editing.templates",
     "ts.external.directory.path": "/Users/mtkh97/Desktop/porfolio-v2/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -69,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1734843626097</updated>
       <workItem from="1734843628235" duration="1554000" />
+      <workItem from="1735228531616" duration="2317000" />
     </task>
     <task id="LOCAL-00001" summary="feat: shadcnUI config and button effect">
       <option name="closed" value="true" />
