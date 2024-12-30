@@ -122,7 +122,7 @@ export const SPOTVContents = () => {
   return (
     <ContentLayout
       title={"SPOTV-NOW"}
-      link="https://web-sea-stg.spotvnow.com"
+      link="staging"
       duration="Apr 2024 - Sep 2024"
       imgSrc="/projects/spotv-min.webp"
       description="SPOTV-NOW is a web app delivering South Korea's top sports streaming service to Southeast Asia, offering exclusive content live and on replay.

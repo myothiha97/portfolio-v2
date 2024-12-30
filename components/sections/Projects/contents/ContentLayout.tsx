@@ -34,10 +34,16 @@ const ContentLayout = ({
       <div className="flex flex-col gap-y-1 px-8 pt-5">
         <p className="text-base">{duration}</p>
         <p className="flex gap-3 text-base">
-          Site link -{" "}
-          <Link href={link} target="_blank" className="hover:underline">
-            {link.replace(/(^\w+:|^)\/\//, "")}
-          </Link>
+          {link === "staging" ? (
+            "This project is currently in staging."
+          ) : (
+            <>
+              Site link -{" "}
+              <Link href={link} target="_blank" className="hover:underline">
+                {link.replace(/(^\w+:|^)\/\//, "")}
+              </Link>
+            </>
+          )}
         </p>
 
         <p className=""></p>

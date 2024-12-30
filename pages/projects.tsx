@@ -6,7 +6,7 @@ export default function ProjectsPage() {
   return (
     <AnimatePresence>
       <SlideIn className="sm:hidden sm:px-0 px-5 sm:pt-0">
-        <ProjectCards />
+       <ProjectCards />
       </SlideIn>
     </AnimatePresence>
   );
