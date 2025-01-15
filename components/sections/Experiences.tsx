@@ -9,7 +9,7 @@ import React from "react";
 const EXPERIENCES = [
   {
     title: "Codigo - App Development Company in Singapore",
-    position: "Senior web developer",
+    position: "Senior Software Engineer - Javascript",
     description:
       "Codigo is a software company specializing in mobile and web app development.",
     date: "09/2021 - Present",
@@ -17,18 +17,15 @@ const EXPERIENCES = [
     fullDescription: [
       `Codigo is a software company specializing in mobile and web app
 development.`,
-      `At Codigo, I developed and maintained web applications using
-modern frameworks like React, Next.js, Node.js, Angular, and
-TypeScript. Collaborated with cross-functional teams to deliver
-high-quality, on-time projects tailored to client needs.
-`,
+      `Developed and maintained web applications using modern
+frameworks like React, Next.js, Node.js, Angular, and TypeScript.`,
       `Collaborated closely with cross-functional teams to ensure the
 timely delivery of high-quality web applications.`,
     ],
   },
   {
     title: "Rezerv - Fitness, Wellness & Spa Management Software",
-    position: "web developer",
+    position: "Software Engineer - Javascript",
     description:
       "Codigo is a software company specializing in mobile and web app development.",
     date: "02/2022 - 06/2022",
@@ -37,33 +34,14 @@ timely delivery of high-quality web applications.`,
       `Rezerv is a comprehensive management software for service-based
 businesses in industries such as fitness, wellness, education, arts,
 healthcare, hospitality, and maintenance.`,
-      `As a web developer, I am responsible to develop and maintain the
-platform using React, Next.js, NodeJS and Typescript.
+      `Developed and maintained the platform using React, Next.js, NodeJS
+and Typescript.
 `,
-      `During my time at Rezerv, I collaborated with teams like UI/UX and
-QA to ensure seamless project execution.`,
-    ],
-  },
-  {
-    title: "Freelance",
-    position: "web developer",
-    description:
-      "Codigo is a software company specializing in mobile and web app development.",
-    date: "10/2020 - 09/2021",
-    location: "Yangon, Myanmar",
-    fullDescription: [
-      `Developed websites using HTML, CSS, JavaScript, Typescript,
-React, NodeJS and Nextjs.`,
-      `Provided web development support, creating visually appealing
-designs that aligned with brand standards.
-`,
-      `Enhanced user experience by implementing responsive web design
-and optimizing website performance.`,
     ],
   },
   {
     title: "MM-Digitial-Solutions",
-    position: "Python Developer",
+    position: "Software Engineer - Python",
     description:
       "Codigo is a software company specializing in mobile and web app development.",
     date: "01/2020 - 02/2021",
@@ -74,9 +52,22 @@ support business analytics.`,
       `Enhanced application performance by optimizing Python code and
 adhering to best practices.
 `,
-
       `Integrated machine learning models into Python applications for
 advanced data analysis and predictive insights.`,
+    ],
+  },
+  {
+    title: "Freelance",
+    position: "Software Engineer",
+    description:
+      "Codigo is a software company specializing in mobile and web app development.",
+    date: "10/2020 - 09/2021",
+    location: "Yangon, Myanmar",
+    fullDescription: [
+      `Developed web application using HTML, CSS, JavaScript, PHP,
+Python,Typescript, React, NodeJS and Nextjs.`,
+      `Enhanced user experience by implementing responsive web design
+and optimizing website performance.`,
     ],
   },
 ];

@@ -126,10 +126,10 @@ const Intro = () => {
             displayBodyText && "sm:show"
           )}
         >
-          I am a professional web developer with over five years of experience
-          designing and implementing diverse web applications, from simple
-          static sites to dynamic, large-scale, and high-performance platforms.
-          Below are the skills and technologies I have worked with:
+          I am a professional software engineer with over five years of
+          experience designing and implementing diverse web applications, from
+          simple static sites to dynamic, large-scale, and high-performance
+          platforms. Below are the skills and technologies I have worked with:
         </p>
         <div
           className={cn(

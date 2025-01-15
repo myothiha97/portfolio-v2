@@ -4,11 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Myo Thiha Kyaw - Senior Web developer</title>
+        <title>Myo Thiha Kyaw - Senior Software Engineer</title>
         <link rel="icon" href="/android-chrome-192x192.png" />
         <meta
           name="description"
-          content="Myo Thiha Kyaw, Senior web developer with 5 years of experience in web development.Proficient in React, Next.js, Node.js, Express.js, MongoDB, and other web technologies."
+          content="Myo Thiha Kyaw, Senior software engineer with 5 years of experience in IT industry.Proficient in React, Next.js, Node.js, Express.js, MongoDB, and other web technologies."
         />
         <meta
           name="keywords"
