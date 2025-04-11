@@ -11,7 +11,6 @@ import Modal, { MobileModal } from "./Modal";
 import Contact from "./sections/Contact";
 import MobileMenu from "./MobileMenu/index";
 import { slideInMotionVariants } from "@/libs/utils/ui";
-import { useRouter } from "next/router";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -26,23 +25,17 @@ const BGs = [
   "contact-bg.jpg",
 ];
 
-type BackgroundImageProps = {
-  index?: number;
-};
-
-const BackgroundImage = ({ index = 0 }: BackgroundImageProps) => {
+const BackgroundImage = () => {
   const { slideIndex } = useContext(SlideIndexContext);
-  const router = useRouter();
-  const bgIndex = router.query?.bgIndex;
-  const bgIndexFromURL = bgIndex ? parseInt(bgIndex as string) : undefined;
-  const currentIndex = bgIndexFromURL || slideIndex;
+  // for some reason, slideIndex value is not correct when navigating from bottom to top
+  console.log({ slideIndex });
 
   return (
     <>
       {BGs.map((bg, i) => (
         <motion.div
           initial={{ opacity: 0.0 }}
-          animate={{ opacity: i === currentIndex ? 0.4 : 0 }}
+          animate={{ opacity: i === slideIndex ? 0.4 : 0 }}
           exit={{ opacity: 0 }}
           transition={{
             duration: 1.0,
@@ -74,7 +67,7 @@ const AppRoot = ({ children }: Props) => {
             rubik.className,
             "antialiased",
             "w-full",
-            "h-screen overflow-scroll sm:overflow-hidden hide-scrollbar relative z-[1] sm:pt-0 pt-16"
+            "hide-scrollbar min-h-screen relative z-[1] pt-44"
           )}
         >
           <BackgroundImage />

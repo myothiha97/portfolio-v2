@@ -13,6 +13,8 @@ import {
   TrifectaContents,
   YogaMovementContents,
 } from "./contents";
+import { SECTIONS_IDS } from "@/constants";
+import { SCROLL_MARGIN_SETTINGS } from "../../../constants/index";
 
 export default function ProjectCards() {
   const cards = useMemo(
@@ -24,7 +26,13 @@ export default function ProjectCards() {
   );
 
   return (
-    <div className="w-full h-full lg:pt-10 xl:pt-20 2xl:pt-32">
+    <div
+      className="h-screen pageContainer lg:pt-10 xl:pt-20 2xl:pt-32"
+      id={SECTIONS_IDS.PROJECTS}
+      style={{
+        ...SCROLL_MARGIN_SETTINGS,
+      }}
+    >
       <h2 className=" text-primary-color">Projects</h2>
       <Carousel items={cards} />
     </div>

@@ -28,3 +28,11 @@ export const slideInMotionVariants = {
     },
   },
 };
+
+export const scrollToSection = (id: string) => {
+  if (typeof window === "undefined") return;
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};

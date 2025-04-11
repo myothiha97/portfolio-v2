@@ -4,6 +4,12 @@ import useTypewriter from "@/libs/hooks/useTypewriter";
 import React, { useEffect, useState } from "react";
 import { cn } from "@/libs/utils/styles";
 import { Copyright } from "lucide-react";
+import { SECTIONS_IDS } from "@/constants";
+import { SCROLL_MARGIN_SETTINGS } from "../../constants/index";
+import {
+  SlideIndexContext,
+  useSlideIndexChange,
+} from "../Providers/SlideIndexProvider";
 
 type BadgeProps = {
   text: string;
@@ -61,11 +67,15 @@ const displayContentsAsync = (action: Function, delay = 400): any => {
   });
 };
 
-const Intro = () => {
+type Props = {
+  className?: string;
+};
+const Intro = ({ className }: Props) => {
   const [displayImage, setDisplayImage] = useState(false);
   const [displayBodyText, setDisplayBodyText] = useState(false);
-  const [displayTitle, setDisplayTitle] = useState(false);
   const [displayTechs, setDisplayTechs] = useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  useSlideIndexChange(containerRef, 0);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const myIntro = useTypewriter({
@@ -90,7 +100,17 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className={"w-full relative sm:flex justify-center"}>
+    <div
+      className={cn(
+        "w-full relative sm:flex justify-center h-screen",
+        className
+      )}
+      id={SECTIONS_IDS.INTRO}
+      style={{
+        ...SCROLL_MARGIN_SETTINGS,
+      }}
+      ref={containerRef}
+    >
       <div className="sm:px-0 px-5 relative z-[1]">
         <div className={" gap-x-10 items-center min-h-[149px] hidden sm:flex"}>
           <div className="flex flex-col gap-2">

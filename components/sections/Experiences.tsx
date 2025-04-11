@@ -1,3 +1,4 @@
+import { cn } from "@/libs/utils/styles";
 import {
   Accordion,
   AccordionItem,
@@ -5,6 +6,9 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 import React from "react";
+import { SECTIONS_IDS } from "@/constants";
+import { SCROLL_MARGIN_SETTINGS } from "../../constants/index";
+import { useSlideIndexChange } from "../Providers/SlideIndexProvider";
 
 const EXPERIENCES = [
   {
@@ -72,9 +76,25 @@ and optimizing website performance.`,
   },
 ];
 
-const Experiences = () => {
+type Props = {
+  className?: string;
+};
+
+const Experiences = ({ className }: Props) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  useSlideIndexChange(containerRef, 1);
   return (
-    <div className="hide-scrollbar sm:w-[clamp(400px,60vw,700px)] sm:px-0 px-5">
+    <div
+      className={cn(
+        "hide-scrollbar sm:w-[clamp(400px,60vw,700px)] sm:px-0 px-5 h-screen pageContainer",
+        className
+      )}
+      ref={containerRef}
+      id={SECTIONS_IDS.EXPERIENCES}
+      style={{
+        ...SCROLL_MARGIN_SETTINGS,
+      }}
+    >
       <h1 className="2xl:mb-10 mb-5">Work Experiences</h1>
       <Accordion
         type="single"

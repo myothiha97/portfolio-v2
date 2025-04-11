@@ -140,3 +140,8 @@
     outline: none;
   }
 }
+@layer components {
+  .pageContainer {
+    @apply max-w-2xl mx-auto;
+  }
+}

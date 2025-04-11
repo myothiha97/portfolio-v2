@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Intro from "@/components/sections/Intro";
 import { AnimatePresence, motion } from "framer-motion";
 import SlideIn from "../components/Animations/motions/SlideIn";
+import Experiences from "../components/sections/Experiences";
+import ProjectCards from "../components/sections/Projects/ProjectCards";
+import NavPagination from "../components/Carousel/NavPagniation";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -18,13 +21,19 @@ export default function Home() {
 
   return (
     <>
-      <div className={"h-full hidden sm:block"}>
-        {loading ? <Loading /> : <Carousel />}
-      </div>
       <AnimatePresence>
-        <SlideIn className="sm:hidden">
-          <Intro />
-        </SlideIn>
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <NavPagination className="fixed z-50 top-0" />
+            <SlideIn>
+              <Intro />
+              <Experiences />
+              <ProjectCards />
+            </SlideIn>
+          </>
+        )}
       </AnimatePresence>
     </>
   );

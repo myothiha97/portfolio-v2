@@ -90,7 +90,6 @@ const Contact = () => {
       "drawer-entire-content"
     ) as HTMLDivElement;
     const content = document.getElementById("drawer-content") as HTMLDivElement;
-    console.log(entireContent, content);
     const onClickOutside = (e) => {
       debugger;
       if (entireContent && content && !content?.contains(e.target)) {

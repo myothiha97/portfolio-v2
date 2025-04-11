@@ -1,51 +1,79 @@
+import { SECTIONS_IDS } from "@/constants";
 import { cn } from "@/libs/utils/styles";
-import { EmblaCarouselType } from "embla-carousel";
-import { useContext } from "react";
-import { ModalStateContext } from "../Providers/ModalStateProvider";
-import ContactModal from "../sections/ContactModal";
-import { openModal } from "@/libs/utils/ui";
+import { scrollToSection } from "@/libs/utils/ui";
+import { useContext, useEffect, useState } from "react";
+import { SlideIndexContext } from "../Providers/SlideIndexProvider";
 
 interface NavPaginationProps {
-  emblaApi?: EmblaCarouselType;
   className?: string;
-  selectedIndex: number;
 }
 
-const SECTIONS = ["Intro", "Experiences", "Projects", "Contact"];
+const SECTIONS = [
+  {
+    title: "Intro",
+    id: SECTIONS_IDS.INTRO,
+  },
+  {
+    title: "Experiences",
+    id: SECTIONS_IDS.EXPERIENCES,
+  },
+  {
+    title: "Projects",
+    id: SECTIONS_IDS.PROJECTS,
+  },
+  {
+    title: "Contact",
+    id: SECTIONS_IDS.CONTACT,
+  },
+];
 
-const NavPagination = ({
-  emblaApi,
-  className,
-  selectedIndex,
-}: NavPaginationProps) => {
-  const { setContent } = useContext(ModalStateContext);
+const SCROLL_THRESHOLD = 0.05;
+
+const NavPagination = ({ className }: NavPaginationProps) => {
+  const [showNavBarColor, setShowNavBarColor] = useState(false);
+  const { setSlideIndex } = useContext(SlideIndexContext);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      if (scrollY / (documentHeight - windowHeight) > SCROLL_THRESHOLD) {
+        setShowNavBarColor(true);
+      } else {
+        setShowNavBarColor(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <div className={cn("w-full justify-center hidden sm:flex", className)}>
+    <nav
+      className={cn(
+        "py-5 pl-10 pr-32 flex justify-end w-screen transition-colors duration-500",
+        showNavBarColor ? "bg-primary-color text-black" : "bg-transparent",
+        className
+      )}
+    >
       <div className="flex gap-x-7 items-center">
         {SECTIONS.map((section, index) => (
           <button
             key={index}
-            className={cn(
-              "rounded-full",
-
-              selectedIndex === index ? "text-primary-color" : "text-gray-400",
-              section === "Contact"
-                ? "bg-primary-color text-black py-2 px-4 rounded-md font-semibold text-sm"
-                : ""
-            )}
+            className={cn("rounded-full")}
             onClick={() => {
-              if (emblaApi && section !== "Contact") emblaApi?.scrollTo(index);
-              else {
-                setContent(<ContactModal />);
-                openModal();
-              }
+              scrollToSection(section.id);
+              setSlideIndex(index);
             }}
           >
-            {section}
+            {section.title}
           </button>
         ))}
       </div>
-    </div>
+    </nav>
   );
 };
 
