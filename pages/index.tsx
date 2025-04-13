@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Experiences from "../components/sections/Experiences";
 import ProjectCards from "../components/sections/Projects/ProjectCards";
 import NavPagination from "../components/Carousel/NavPagniation";
+import { ContactInfo } from "../components/sections/Contact";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

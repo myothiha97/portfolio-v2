@@ -61,11 +61,11 @@ const EmblaCarousel: React.FC<PropType> = () => {
 
   return (
     <div className="w-screen hidden sm:block">
-      <NavPagination
+      {/* <NavPagination
         selectedIndex={slideIndex}
         className="fixed z-50 justify-end right-20 top-5 2xl:right-52 2xl:top-10"
         emblaApi={emblaApi}
-      />
+      /> */}
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">

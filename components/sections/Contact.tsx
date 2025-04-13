@@ -2,6 +2,7 @@ import { Drawer, DrawerClose, DrawerContent } from "@/components/ui/drawer";
 import React, { useContext, useEffect, useState } from "react";
 import { ModalStateContext } from "../Providers/ModalStateProvider";
 import { Mail } from "lucide-react";
+import { cn } from "@/libs/utils/styles";
 
 const CloseIcon = () => {
   return (
@@ -82,6 +83,23 @@ const ContactItem = ({ title, children }: RowProps & { title: string }) => {
   );
 };
 
+type ContactInfoProps = {
+  className?: string;
+};
+
+export const ContactInfo = ({ className }: ContactInfoProps) => {
+  return (
+    <div className={cn("flex flex-col gap-4", className)}>
+      <ContactItem title="Email">mthk97.dev@gmail.com</ContactItem>
+      <ContactItem title="Phone">+6627033226</ContactItem>
+      <ContactItem title="Address">Chaing Mai, Thailand</ContactItem>
+      <ContactItem title="Linkedin">
+        https://www.linkedin.com/in/myo-thiha-kyaw-ba036a187
+      </ContactItem>
+    </div>
+  );
+};
+
 const Contact = () => {
   const { drawer, setDrawer } = useContext(ModalStateContext);
 
@@ -91,7 +109,6 @@ const Contact = () => {
     ) as HTMLDivElement;
     const content = document.getElementById("drawer-content") as HTMLDivElement;
     const onClickOutside = (e) => {
-      debugger;
       if (entireContent && content && !content?.contains(e.target)) {
         setDrawer(false);
       }
@@ -116,14 +133,7 @@ const Contact = () => {
             <CloseIcon />
           </DrawerClose>
           <h1 className="text-2xl text-center">Contact</h1>
-          <div className="flex flex-col gap-4">
-            <ContactItem title="Email">mthk97.dev@gmail.com</ContactItem>
-            <ContactItem title="Phone">+6627033226</ContactItem>
-            <ContactItem title="Address">Chaing Mai, Thailand</ContactItem>
-            <ContactItem title="Linkedin">
-              https://www.linkedin.com/in/myo-thiha-kyaw-ba036a187
-            </ContactItem>
-          </div>
+          <ContactInfo />
         </div>
       </DrawerContent>
     </Drawer>

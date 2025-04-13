@@ -1,8 +1,11 @@
 import { SECTIONS_IDS } from "@/constants";
 import { cn } from "@/libs/utils/styles";
-import { scrollToSection } from "@/libs/utils/ui";
+import { openModal, scrollToSection } from "@/libs/utils/ui";
 import { useContext, useEffect, useState } from "react";
 import { SlideIndexContext } from "../Providers/SlideIndexProvider";
+import { ModalStateContext } from "../Providers/ModalStateProvider";
+import Contact from "../sections/Contact";
+import ContactModal from "../sections/ContactModal";
 
 interface NavPaginationProps {
   className?: string;
@@ -31,7 +34,7 @@ const SCROLL_THRESHOLD = 0.05;
 
 const NavPagination = ({ className }: NavPaginationProps) => {
   const [showNavBarColor, setShowNavBarColor] = useState(false);
-  const { setSlideIndex } = useContext(SlideIndexContext);
+  const { setDrawer, setContent } = useContext(ModalStateContext);
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -51,11 +54,12 @@ const NavPagination = ({ className }: NavPaginationProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const contactBtnClass = `bg-primary-color text-black py-2 px-4 rounded-md font-semibold text-sm`;
   return (
     <nav
       className={cn(
-        "py-5 pl-10 pr-32 flex justify-end w-screen transition-colors duration-500",
-        showNavBarColor ? "bg-primary-color text-black" : "bg-transparent",
+        "py-5 pl-10 pr-32 flex justify-end w-screen transition-colors duration-500 ease-in-out",
+        showNavBarColor ? "bg-primary-color/90 text-black" : "bg-transparent",
         className
       )}
     >
@@ -63,8 +67,20 @@ const NavPagination = ({ className }: NavPaginationProps) => {
         {SECTIONS.map((section, index) => (
           <button
             key={index}
-            className={cn("rounded-full")}
+            className={cn(
+              "rounded-full transition-all",
+              section.title === "Contact"
+                ? showNavBarColor
+                  ? `${contactBtnClass} bg-gray-900 text-white`
+                  : `${contactBtnClass}`
+                : ""
+            )}
             onClick={() => {
+              if (index === SECTIONS.length - 1) {
+                setContent(<ContactModal />);
+                openModal();
+                return;
+              }
               scrollToSection(section.id);
             }}
           >
