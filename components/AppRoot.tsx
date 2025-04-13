@@ -26,16 +26,16 @@ const BGs = [
 ];
 
 const BackgroundImage = () => {
-  const { slideIndex } = useContext(SlideIndexContext);
+  // const { slideIndex } = useContext(SlideIndexContext);
   // for some reason, slideIndex value is not correct when navigating from bottom to top
-  console.log({ slideIndex });
+  // console.log({ slideIndex });
 
   return (
     <>
       {BGs.map((bg, i) => (
         <motion.div
           initial={{ opacity: 0.0 }}
-          animate={{ opacity: i === slideIndex ? 0.4 : 0 }}
+          animate={{ opacity: i === 0 ? 0.4 : 0 }}
           exit={{ opacity: 0 }}
           transition={{
             duration: 1.0,

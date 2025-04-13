@@ -6,10 +6,7 @@ import { cn } from "@/libs/utils/styles";
 import { Copyright } from "lucide-react";
 import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../constants/index";
-import {
-  SlideIndexContext,
-  useSlideIndexChange,
-} from "../Providers/SlideIndexProvider";
+import SlideIn from "../Animations/motions/SlideIn";
 
 type BadgeProps = {
   text: string;
@@ -74,8 +71,6 @@ const Intro = ({ className }: Props) => {
   const [displayImage, setDisplayImage] = useState(false);
   const [displayBodyText, setDisplayBodyText] = useState(false);
   const [displayTechs, setDisplayTechs] = useState(false);
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  useSlideIndexChange(containerRef, 0);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const myIntro = useTypewriter({
@@ -100,7 +95,7 @@ const Intro = ({ className }: Props) => {
   }, []);
 
   return (
-    <div
+    <SlideIn
       className={cn(
         "w-full relative sm:flex justify-center h-screen",
         className
@@ -109,7 +104,6 @@ const Intro = ({ className }: Props) => {
       style={{
         ...SCROLL_MARGIN_SETTINGS,
       }}
-      ref={containerRef}
     >
       <div className="sm:px-0 px-5 relative z-[1]">
         <div className={" gap-x-10 items-center min-h-[149px] hidden sm:flex"}>
@@ -163,7 +157,7 @@ const Intro = ({ className }: Props) => {
         </div>
       </div>
       {/* <CopyRight className="px-5 mt-5 sm:fixed sm:bottom-20" /> */}
-    </div>
+    </SlideIn>
   );
 };
 

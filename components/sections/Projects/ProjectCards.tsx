@@ -15,6 +15,7 @@ import {
 } from "./contents";
 import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../../constants/index";
+import SlideIn from "@/components/Animations/motions/SlideIn";
 
 export default function ProjectCards() {
   const cards = useMemo(
@@ -26,8 +27,8 @@ export default function ProjectCards() {
   );
 
   return (
-    <div
-      className="h-screen pageContainer lg:pt-10 xl:pt-20 2xl:pt-32"
+    <SlideIn
+      className="h-screen pageContainer lg:pt-10 xl:pt-20 2xl:pt-32 "
       id={SECTIONS_IDS.PROJECTS}
       style={{
         ...SCROLL_MARGIN_SETTINGS,
@@ -35,7 +36,7 @@ export default function ProjectCards() {
     >
       <h2 className=" text-primary-color">Projects</h2>
       <Carousel items={cards} />
-    </div>
+    </SlideIn>
   );
 }
 

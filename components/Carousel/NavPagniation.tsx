@@ -66,7 +66,6 @@ const NavPagination = ({ className }: NavPaginationProps) => {
             className={cn("rounded-full")}
             onClick={() => {
               scrollToSection(section.id);
-              setSlideIndex(index);
             }}
           >
             {section.title}

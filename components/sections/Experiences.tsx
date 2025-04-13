@@ -9,6 +9,7 @@ import React from "react";
 import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../constants/index";
 import { useSlideIndexChange } from "../Providers/SlideIndexProvider";
+import SlideIn from "../Animations/motions/SlideIn";
 
 const EXPERIENCES = [
   {
@@ -81,15 +82,12 @@ type Props = {
 };
 
 const Experiences = ({ className }: Props) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  useSlideIndexChange(containerRef, 1);
   return (
-    <div
+    <SlideIn
       className={cn(
         "hide-scrollbar sm:w-[clamp(400px,60vw,700px)] sm:px-0 px-5 h-screen pageContainer",
         className
       )}
-      ref={containerRef}
       id={SECTIONS_IDS.EXPERIENCES}
       style={{
         ...SCROLL_MARGIN_SETTINGS,
@@ -132,7 +130,7 @@ const Experiences = ({ className }: Props) => {
           </AccordionItem>
         ))}
       </Accordion>
-    </div>
+    </SlideIn>
   );
 };
 

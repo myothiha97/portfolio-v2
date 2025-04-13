@@ -3,7 +3,6 @@ import Loading from "@/components/Loading";
 import { useEffect, useState } from "react";
 import Intro from "@/components/sections/Intro";
 import { AnimatePresence, motion } from "framer-motion";
-import SlideIn from "../components/Animations/motions/SlideIn";
 import Experiences from "../components/sections/Experiences";
 import ProjectCards from "../components/sections/Projects/ProjectCards";
 import NavPagination from "../components/Carousel/NavPagniation";
@@ -27,11 +26,10 @@ export default function Home() {
         ) : (
           <>
             <NavPagination className="fixed z-50 top-0" />
-            <SlideIn>
-              <Intro />
-              <Experiences />
-              <ProjectCards />
-            </SlideIn>
+
+            <Intro />
+            <Experiences />
+            <ProjectCards />
           </>
         )}
       </AnimatePresence>
