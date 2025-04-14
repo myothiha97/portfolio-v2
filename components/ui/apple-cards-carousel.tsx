@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import useOutsideClick from "@/libs/hooks/useClickoutside";
 import { ModalStateContext } from "../Providers/ModalStateProvider";
-import { closeModal, openModal } from "../../libs/utils/ui";
+import { renderModalElement } from "../../libs/utils/ui";
 import { useMedia } from "react-use";
 
 interface CarouselProps {
@@ -171,7 +171,7 @@ export const Card = ({
   const handleOpen = () => {
     setContent(card.content);
     if (!isMobile) {
-      openModal();
+      renderModalElement();
     }
   };
 

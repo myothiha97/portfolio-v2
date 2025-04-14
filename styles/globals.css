@@ -128,11 +128,9 @@
     @apply opacity-100 visible;
   }
 
-  .hide-scrollbar {
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  .scrollbar-primary {
+    /* scrollbar-width: none; */
+    scrollbar-color: #fffce1 transparent;
   }
 }
 @layer base {
@@ -142,6 +140,6 @@
 }
 @layer components {
   .pageContainer {
-    @apply max-w-2xl mx-auto;
+    @apply md:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl mx-auto;
   }
 }

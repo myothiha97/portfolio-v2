@@ -16,6 +16,7 @@ import {
 import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../../constants/index";
 import SlideIn from "@/components/Animations/motions/SlideIn";
+import { useSlideIndexChange } from "@/components/Providers/SlideIndexProvider";
 
 export default function ProjectCards() {
   const cards = useMemo(
@@ -25,10 +26,13 @@ export default function ProjectCards() {
       )),
     []
   );
+  const ref = React.useRef<HTMLDivElement>(null);
+  useSlideIndexChange(ref, 2);
 
   return (
     <SlideIn
-      className="h-screen pageContainer lg:pt-10 xl:pt-20 2xl:pt-32 "
+      ref={ref}
+      className="h-screen pageContainer overflow-visible lg:pt-10 xl:pt-20 2xl:pt-32 "
       id={SECTIONS_IDS.PROJECTS}
       style={{
         ...SCROLL_MARGIN_SETTINGS,

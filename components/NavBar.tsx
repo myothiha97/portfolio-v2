@@ -1,11 +1,10 @@
 import { SECTIONS_IDS } from "@/constants";
 import { cn } from "@/libs/utils/styles";
-import { openModal, scrollToSection } from "@/libs/utils/ui";
+import { scrollToSection } from "@/libs/utils/ui";
 import { useContext, useEffect, useState } from "react";
-import { SlideIndexContext } from "../Providers/SlideIndexProvider";
-import { ModalStateContext } from "../Providers/ModalStateProvider";
-import Contact from "../sections/Contact";
-import ContactModal from "../sections/ContactModal";
+import ContactModal from "./sections/ContactModal";
+import useModal from "@/libs/hooks/useModal";
+import { SlideIndexContext } from "./Providers/SlideIndexProvider";
 
 interface NavPaginationProps {
   className?: string;
@@ -34,7 +33,8 @@ const SCROLL_THRESHOLD = 0.05;
 
 const NavPagination = ({ className }: NavPaginationProps) => {
   const [showNavBarColor, setShowNavBarColor] = useState(false);
-  const { setDrawer, setContent } = useContext(ModalStateContext);
+  const { slideIndex } = useContext(SlideIndexContext);
+  const { openModal } = useModal();
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -59,7 +59,7 @@ const NavPagination = ({ className }: NavPaginationProps) => {
     <nav
       className={cn(
         "py-5 pl-10 pr-32 flex justify-end w-screen transition-colors duration-500 ease-in-out",
-        showNavBarColor ? "bg-primary-color/90 text-black" : "bg-transparent",
+        // showNavBarColor ? "bg-primary-color/90 text-black" : "bg-transparent",
         className
       )}
     >
@@ -69,16 +69,14 @@ const NavPagination = ({ className }: NavPaginationProps) => {
             key={index}
             className={cn(
               "rounded-full transition-all",
-              section.title === "Contact"
-                ? showNavBarColor
-                  ? `${contactBtnClass} bg-gray-900 text-white`
-                  : `${contactBtnClass}`
-                : ""
+              slideIndex === index
+                ? "text-primary-color font-bold"
+                : "text-gray-400",
+              section.title === "Contact" ? contactBtnClass : ""
             )}
             onClick={() => {
               if (index === SECTIONS.length - 1) {
-                setContent(<ContactModal />);
-                openModal();
+                openModal({ content: <ContactModal /> });
                 return;
               }
               scrollToSection(section.id);
@@ -86,6 +84,33 @@ const NavPagination = ({ className }: NavPaginationProps) => {
           >
             {section.title}
           </button>
+          // <button
+          //   key={index}
+          //   className={cn(
+          //     "rounded-full transition-all",
+          //     slideIndex === index
+          //       ? showNavBarColor
+          //         ? "font-bold"
+          //         : "text-primary-color"
+          //       : showNavBarColor
+          //       ? "text-black"
+          //       : "text-gray-400",
+          //     section.title === "Contact"
+          //       ? showNavBarColor
+          //         ? `${contactBtnClass} bg-gray-800 text-primary-color`
+          //         : `${contactBtnClass}`
+          //       : ""
+          //   )}
+          //   onClick={() => {
+          //     if (index === SECTIONS.length - 1) {
+          //       openModal({ content: <ContactModal /> });
+          //       return;
+          //     }
+          //     scrollToSection(section.id);
+          //   }}
+          // >
+          //   {section.title}
+          // </button>
         ))}
       </div>
     </nav>

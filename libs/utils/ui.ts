@@ -1,9 +1,9 @@
-export const openModal = () => {
+export const renderModalElement = () => {
   const modal = document.getElementById("modal") as HTMLDialogElement;
   modal?.showModal();
 };
 
-export const closeModal = () => {
+export const removeModalElement = () => {
   const modal = document.getElementById("modal") as HTMLDialogElement;
   modal?.close();
 };

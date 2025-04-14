@@ -16,7 +16,6 @@ import Experiences from "@/components/sections/Experiences";
 import { cn } from "@/libs/utils/styles";
 
 import PageSection from "@/components/sections/PageSection";
-import NavPagination from "./NavPagniation";
 import { SlideIndexContext } from "../Providers/SlideIndexProvider";
 
 type PropType = {};

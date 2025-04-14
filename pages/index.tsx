@@ -5,8 +5,7 @@ import Intro from "@/components/sections/Intro";
 import { AnimatePresence, motion } from "framer-motion";
 import Experiences from "../components/sections/Experiences";
 import ProjectCards from "../components/sections/Projects/ProjectCards";
-import NavPagination from "../components/Carousel/NavPagniation";
-import { ContactInfo } from "../components/sections/Contact";
+import NavBar from "../components/NavBar";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -26,8 +25,7 @@ export default function Home() {
           <Loading />
         ) : (
           <>
-            <NavPagination className="fixed z-50 top-0" />
-
+            <NavBar className="fixed z-50 top-0" />
             <Intro />
             <Experiences />
             <ProjectCards />

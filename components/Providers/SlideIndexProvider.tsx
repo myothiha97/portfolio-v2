@@ -11,9 +11,10 @@ type Props = {
 };
 
 export const useSlideIndexChange = (ref: RefObject<any>, index: number) => {
-  // for some reason, setSlideIndex is not updating the value correctly
   const { slideIndex, setSlideIndex } = React.useContext(SlideIndexContext);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, {
+    margin: `-50% 0px -50% 0px`, // to trigger when the element is in the middle of the viewport
+  });
   useEffect(() => {
     if (isInView) {
       setSlideIndex(index);

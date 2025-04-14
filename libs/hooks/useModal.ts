@@ -1,8 +1,18 @@
 import { ModalStateContext } from "@/components/Providers/ModalStateProvider";
 import { useContext, useEffect } from "react";
+import { removeModalElement, renderModalElement } from "../utils/ui";
 
 export default function useModal() {
   const { content, setContent } = useContext(ModalStateContext);
+  const openModal = ({ content }: { content: React.ReactNode }) => {
+    setContent(content);
+    renderModalElement();
+  };
+
+  const closeModal = () => {
+    removeModalElement();
+    setContent(null);
+  };
 
   useEffect(() => {
     const modal = document.getElementById("modal") as HTMLDialogElement;
@@ -27,5 +37,5 @@ export default function useModal() {
       modal?.removeEventListener("click", onClickOutside);
     };
   }, [content]);
-  return { content, setContent };
+  return { content, setContent, openModal, closeModal };
 }

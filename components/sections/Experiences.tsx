@@ -82,8 +82,11 @@ type Props = {
 };
 
 const Experiences = ({ className }: Props) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  useSlideIndexChange(ref, 1);
   return (
     <SlideIn
+      ref={ref}
       className={cn(
         "hide-scrollbar sm:w-[clamp(400px,60vw,700px)] sm:px-0 px-5 h-screen pageContainer",
         className
