@@ -69,9 +69,7 @@ const NavPagination = ({ className }: NavPaginationProps) => {
             key={index}
             className={cn(
               "rounded-full transition-all",
-              slideIndex === index
-                ? "text-primary-color font-bold"
-                : "text-gray-400",
+              slideIndex === index ? "text-primary-color " : "text-gray-400",
               section.title === "Contact" ? contactBtnClass : ""
             )}
             onClick={() => {

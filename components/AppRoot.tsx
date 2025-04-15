@@ -64,7 +64,7 @@ const AppRoot = ({ children }: Props) => {
           className={cn(
             rubik.className,
             "antialiased",
-            "w-full",
+            "w-full min-h-screen",
             "relative z-[1] pt-44"
           )}
         >

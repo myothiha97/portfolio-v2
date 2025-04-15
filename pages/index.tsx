@@ -1,4 +1,3 @@
-import Carousel from "@/components/Carousel/Carousel";
 import Loading from "@/components/Loading";
 import { useEffect, useState } from "react";
 import Intro from "@/components/sections/Intro";
@@ -27,7 +26,7 @@ export default function Home() {
           <>
             <NavBar className="fixed z-50 top-0" />
             <Intro />
-            <Experiences />
+            <Experiences className="mb-36" />
             <ProjectCards />
           </>
         )}
