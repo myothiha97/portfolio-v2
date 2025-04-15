@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Experiences from "../components/sections/Experiences";
 import ProjectCards from "../components/sections/Projects/ProjectCards";
 import NavBar from "../components/NavBar";
+import Contact from "../components/sections/Contact";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ export default function Home() {
             <Intro />
             <Experiences className="mb-36" />
             <ProjectCards />
+            <Contact />
           </>
         )}
       </AnimatePresence>

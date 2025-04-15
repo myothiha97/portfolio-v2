@@ -32,7 +32,7 @@ export default function ProjectCards() {
   return (
     <SlideIn
       ref={ref}
-      className="h-screen pageContainer overflow-visible lg:pt-10 xl:pt-20 2xl:pt-32 "
+      className="min-h-screen sm:min-h-[auto] lg:min-h-screen pageContainer overflow-visible lg:pt-32 2xl:pt-32 sm:px-20 px-5 sm:pt-0 md:mb-32 mb-10 lg:mb-0"
       id={SECTIONS_IDS.PROJECTS}
       style={{
         ...SCROLL_MARGIN_SETTINGS,

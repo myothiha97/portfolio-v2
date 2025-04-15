@@ -8,7 +8,6 @@ import SlideIndexProvider, {
 } from "./Providers/SlideIndexProvider";
 import ModalStateProvider from "./Providers/ModalStateProvider";
 import Modal, { MobileModal } from "./Modal";
-import Contact from "./sections/Contact";
 import MobileMenu from "./MobileMenu/index";
 import { slideInMotionVariants } from "@/libs/utils/ui";
 
@@ -65,7 +64,7 @@ const AppRoot = ({ children }: Props) => {
             rubik.className,
             "antialiased",
             "w-full min-h-screen",
-            "relative z-[1] pt-44"
+            "relative z-[1] pt-20 md:pt-28 lg:pt-44"
           )}
         >
           <BackgroundImage />
@@ -73,7 +72,6 @@ const AppRoot = ({ children }: Props) => {
         </motion.main>
       </SlideIndexProvider>
       <Modal />
-      <Contact />
     </ModalStateProvider>
   );
 };

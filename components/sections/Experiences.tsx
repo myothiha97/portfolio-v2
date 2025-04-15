@@ -167,7 +167,7 @@ const Experiences = ({ className }: Props) => {
     <SlideIn
       ref={ref}
       className={cn(
-        "hide-scrollbar sm:w-[clamp(400px,60vw,700px)] sm:px-0 px-5 min-h-screen pageContainer",
+        "hide-scrollbar sm:max-w-2xl lg:w-[clamp(400px,60vw,700px)] lg:px-0 px-5 pt-10 min-h-screen pageContainer",
         className
       )}
       id={SECTIONS_IDS.EXPERIENCES}
@@ -175,7 +175,7 @@ const Experiences = ({ className }: Props) => {
         ...SCROLL_MARGIN_SETTINGS,
       }}
     >
-      <h1 className="2xl:mb-10 mb-5">Work Experiences</h1>
+      <h1 className="sm:mb-14 mb-5">Work Experiences</h1>
       <Accordion
         type="single"
         collapsible
