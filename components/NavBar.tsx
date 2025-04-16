@@ -58,7 +58,7 @@ const NavPagination = ({ className }: NavPaginationProps) => {
   return (
     <nav
       className={cn(
-        "py-5 pl-10 pr-32  justify-end w-screen transition-colors duration-500 ease-in-out lg:flex hidden",
+        "py-5 pl-10 pr-32 justify-end w-screen transition-colors duration-500 ease-in-out lg:flex hidden",
         // showNavBarColor ? "bg-primary-color/90 text-black" : "bg-transparent",
         className
       )}

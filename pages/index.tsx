@@ -25,7 +25,7 @@ export default function Home() {
           <Loading />
         ) : (
           <>
-            <NavBar className="fixed z-50 top-0" />
+            <NavBar className="fixed z-50 top-5" />
             <Intro />
             <Experiences className="mb-36" />
             <ProjectCards />
