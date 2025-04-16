@@ -16,6 +16,8 @@ import {
 import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../../constants/index";
 import SlideIn from "@/components/Animations/motions/SlideIn";
+import { useSlideIndexChange } from "@/components/Providers/SlideIndexProvider";
+import useResponsive from "@/libs/hooks/useResponsive";
 
 export default function ProjectCards() {
   const cards = useMemo(
@@ -25,13 +27,19 @@ export default function ProjectCards() {
       )),
     []
   );
+  const ref = React.useRef<HTMLDivElement>(null);
+  useSlideIndexChange(ref, 2);
+  const { isMobile } = useResponsive();
 
   return (
     <SlideIn
-      className="h-screen pageContainer lg:pt-10 xl:pt-20 2xl:pt-32 "
+      ref={ref}
+      className="min-h-screen sm:min-h-[auto] lg:min-h-screen pageContainer overflow-visible lg:pt-32 2xl:pt-32 sm:px-20 px-5 sm:pt-0 md:mb-32 mb-10 lg:mb-0"
       id={SECTIONS_IDS.PROJECTS}
       style={{
-        ...SCROLL_MARGIN_SETTINGS,
+        ...(isMobile
+          ? { ...SCROLL_MARGIN_SETTINGS.mobile }
+          : { ...SCROLL_MARGIN_SETTINGS.desktop }),
       }}
     >
       <h2 className=" text-primary-color">Projects</h2>

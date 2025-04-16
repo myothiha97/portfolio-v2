@@ -1,11 +1,11 @@
-import Carousel from "@/components/Carousel/Carousel";
 import Loading from "@/components/Loading";
 import { useEffect, useState } from "react";
 import Intro from "@/components/sections/Intro";
 import { AnimatePresence, motion } from "framer-motion";
 import Experiences from "../components/sections/Experiences";
 import ProjectCards from "../components/sections/Projects/ProjectCards";
-import NavPagination from "../components/Carousel/NavPagniation";
+import NavBar from "../components/NavBar";
+import Contact from "../components/sections/Contact";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -25,11 +25,11 @@ export default function Home() {
           <Loading />
         ) : (
           <>
-            <NavPagination className="fixed z-50 top-0" />
-
+            <NavBar className="fixed z-50 top-5" />
             <Intro />
-            <Experiences />
+            <Experiences className="mb-36" />
             <ProjectCards />
+            <Contact />
           </>
         )}
       </AnimatePresence>

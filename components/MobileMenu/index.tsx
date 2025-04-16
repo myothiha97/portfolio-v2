@@ -13,7 +13,7 @@ const MobileMenuTrigger = (params) => {
   const path = router.pathname;
 
   return (
-    <nav className="bg-transparent text-black flex justify-end pr-5 w-screen py-3 items-center fixed top-0 z-40 cursor-pointer sm:hidden">
+    <nav className="bg-transparent text-black flex justify-end pr-5 w-screen py-3 items-center fixed top-0 z-40 cursor-pointer lg:hidden">
       <button onClick={onClickMenu}>
         <Menu
           className="cursor-pointer  text-primary-color"

@@ -6,6 +6,12 @@ export const SECTIONS_IDS = {
 } as const;
 
 export const SCROLL_MARGIN_SETTINGS = {
-  scrollMarginTop: "140px",
-  scrollSnapAlign: "start",
+  desktop: {
+    scrollMarginTop: "140px",
+    scrollSnapAlign: "start",
+  },
+  mobile: {
+    scrollMarginTop: "80px",
+    scrollSnapAlign: "start",
+  },
 } as const;

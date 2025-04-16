@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import useOutsideClick from "@/libs/hooks/useClickoutside";
 import { ModalStateContext } from "../Providers/ModalStateProvider";
-import { closeModal, openModal } from "../../libs/utils/ui";
+import { renderModalElement } from "../../libs/utils/ui";
 import { useMedia } from "react-use";
 
 interface CarouselProps {
@@ -62,13 +62,13 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" });
+      carouselRef.current.scrollBy({ left: -600, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+      carouselRef.current.scrollBy({ left: 600, behavior: "smooth" });
     }
   };
 
@@ -93,6 +93,22 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     <CarouselContext.Provider
       value={{ onCardClose: handleCardClose, currentIndex }}
     >
+      <div className="hidden gap-2 sm:flex justify-end sm:pl-0 pl-2">
+        <button
+          className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+          onClick={scrollLeft}
+          disabled={!canScrollLeft}
+        >
+          <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
+        </button>
+        <button
+          className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
+          onClick={scrollRight}
+          disabled={!canScrollRight}
+        >
+          <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
+        </button>
+      </div>
       <div className="relative w-full">
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto py-5 2xl:py-10 scroll-smooth [scrollbar-width:none]"
@@ -107,7 +123,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
           <div
             className={cn(
-              "flex flex-col w-full sm:w-auto sm:flex-row justify-start gap-4 sm:pl-4"
+              "flex flex-col w-full sm:w-auto sm:flex-row justify-start gap-4"
               // "max-w-7xl mx-auto" // remove max-w-4xl if you want the carousel to span the full width of its container
             )}
           >
@@ -128,29 +144,13 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                   },
                 }}
                 key={"card" + index}
-                className="last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
+                className="lg:last:pr-[5%] md:last:pr-[33%]  rounded-3xl"
               >
                 {item}
               </motion.div>
             ))}
           </div>
         </div>
-      </div>
-      <div className="hidden gap-2 sm:flex sm:pl-0 pl-2">
-        <button
-          className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-          onClick={scrollLeft}
-          disabled={!canScrollLeft}
-        >
-          <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
-        </button>
-        <button
-          className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-          onClick={scrollRight}
-          disabled={!canScrollRight}
-        >
-          <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
-        </button>
       </div>
     </CarouselContext.Provider>
   );
@@ -171,7 +171,7 @@ export const Card = ({
   const handleOpen = () => {
     setContent(card.content);
     if (!isMobile) {
-      openModal();
+      renderModalElement();
     }
   };
 

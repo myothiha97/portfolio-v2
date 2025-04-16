@@ -8,7 +8,6 @@ import SlideIndexProvider, {
 } from "./Providers/SlideIndexProvider";
 import ModalStateProvider from "./Providers/ModalStateProvider";
 import Modal, { MobileModal } from "./Modal";
-import Contact from "./sections/Contact";
 import MobileMenu from "./MobileMenu/index";
 import { slideInMotionVariants } from "@/libs/utils/ui";
 
@@ -26,16 +25,14 @@ const BGs = [
 ];
 
 const BackgroundImage = () => {
-  // const { slideIndex } = useContext(SlideIndexContext);
-  // for some reason, slideIndex value is not correct when navigating from bottom to top
-  // console.log({ slideIndex });
+  const { slideIndex } = useContext(SlideIndexContext);
 
   return (
     <>
       {BGs.map((bg, i) => (
         <motion.div
           initial={{ opacity: 0.0 }}
-          animate={{ opacity: i === 0 ? 0.4 : 0 }}
+          animate={{ opacity: i === slideIndex ? 0.4 : 0 }}
           exit={{ opacity: 0 }}
           transition={{
             duration: 1.0,
@@ -66,8 +63,8 @@ const AppRoot = ({ children }: Props) => {
           className={cn(
             rubik.className,
             "antialiased",
-            "w-full",
-            "hide-scrollbar min-h-screen relative z-[1] pt-44"
+            "w-full min-h-screen",
+            "relative z-[1] pt-20 md:pt-28 lg:pt-44"
           )}
         >
           <BackgroundImage />
@@ -75,7 +72,6 @@ const AppRoot = ({ children }: Props) => {
         </motion.main>
       </SlideIndexProvider>
       <Modal />
-      <Contact />
     </ModalStateProvider>
   );
 };
