@@ -12,6 +12,7 @@ import { useSlideIndexChange } from "../Providers/SlideIndexProvider";
 import SlideIn from "../Animations/motions/SlideIn";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import useResponsive from "@/libs/hooks/useResponsive";
 dayjs.extend(customParseFormat);
 
 type Month =
@@ -163,19 +164,22 @@ type Props = {
 const Experiences = ({ className }: Props) => {
   const ref = React.useRef<HTMLDivElement>(null);
   useSlideIndexChange(ref, 1);
+  const { isMobile } = useResponsive();
   return (
     <SlideIn
       ref={ref}
       className={cn(
-        "hide-scrollbar sm:max-w-2xl lg:w-[clamp(400px,60vw,700px)] lg:px-0 px-5 pt-10 min-h-screen pageContainer",
+        "hide-scrollbar sm:max-w-2xl lg:w-[clamp(400px,60vw,700px)] lg:px-0 px-5 sm:pt-10 min-h-screen pageContainer",
         className
       )}
       id={SECTIONS_IDS.EXPERIENCES}
       style={{
-        ...SCROLL_MARGIN_SETTINGS,
+        ...(isMobile
+          ? { ...SCROLL_MARGIN_SETTINGS.mobile }
+          : { ...SCROLL_MARGIN_SETTINGS.desktop }),
       }}
     >
-      <h1 className="sm:mb-14 mb-5">Work Experiences</h1>
+      <h1 className="sm:mb-8 mb-5">Work Experiences</h1>
       <Accordion
         type="single"
         collapsible

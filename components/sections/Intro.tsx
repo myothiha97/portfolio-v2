@@ -8,6 +8,7 @@ import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../constants/index";
 import SlideIn from "../Animations/motions/SlideIn";
 import { useSlideIndexChange } from "../Providers/SlideIndexProvider";
+import useResponsive from "@/libs/hooks/useResponsive";
 
 type BadgeProps = {
   text: string;
@@ -74,6 +75,7 @@ const Intro = ({ className }: Props) => {
   const [displayTechs, setDisplayTechs] = useState(false);
   const timerRef = React.useRef<NodeJS.Timeout | null>(null);
   const ref = React.useRef<HTMLDivElement>(null);
+  const { isMobile } = useResponsive();
   useSlideIndexChange(ref, 0);
   const myIntro = useTypewriter({
     text: "Hi, I am Myothiha!",
@@ -105,7 +107,9 @@ const Intro = ({ className }: Props) => {
       )}
       id={SECTIONS_IDS.INTRO}
       style={{
-        ...SCROLL_MARGIN_SETTINGS,
+        ...(isMobile
+          ? { ...SCROLL_MARGIN_SETTINGS.mobile }
+          : { ...SCROLL_MARGIN_SETTINGS.desktop }),
       }}
     >
       <div className="sm:px-0 px-5 relative z-[1]">
