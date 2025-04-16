@@ -12,7 +12,7 @@ export default function Document() {
         />
         <meta
           name="keywords"
-          content="myo thiha kyaw,myo thiha,senior web developer,web developer,software engineer,react,nextjs,nodejs,python,typescript,nestjs"
+          content="myo thiha kyaw,myo thiha,senior web developer,web developer,frontend developer,senior frontend developer,software engineer,react,nextjs,nodejs,python,typescript,nestjs"
         />
       </Head>
 
