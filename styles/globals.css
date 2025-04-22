@@ -132,6 +132,9 @@
     /* scrollbar-width: none; */
     scrollbar-color: #fffce1 transparent;
   }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 @layer base {
   *:focus {

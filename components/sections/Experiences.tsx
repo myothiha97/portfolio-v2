@@ -194,13 +194,13 @@ const Experiences = ({ className }: Props) => {
                     {experience.title}
                   </h1>
                   <p className="leading-tight sm:leading-snug text-base 2xl:text-lg">
-                    {experience.position}
+                    Position - {experience.position}
                   </p>
                 </div>
                 <div className="flex flex-col">
                   <p className="text-base">Date - {experience.date}</p>
                   <p className="text-base">
-                    Total Experience -{" "}
+                    Duration -{" "}
                     {getTotalWorkExperience(
                       experience?.date as DateRangeFormat,
                       experience?.isPresent
