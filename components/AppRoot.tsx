@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Rubik } from "next/font/google";
 import { cn } from "@/libs/utils/styles";
 
@@ -51,6 +51,16 @@ const BackgroundImage = () => {
 };
 
 const AppRoot = ({ children }: Props) => {
+  useEffect(() => {
+    const body = document.body;
+    const timer = setTimeout(() => {
+      body.classList.remove("overflow-hidden");
+    }, 1200);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
   return (
     <ModalStateProvider>
       <MobileModal />
@@ -63,7 +73,7 @@ const AppRoot = ({ children }: Props) => {
           className={cn(
             rubik.className,
             "antialiased",
-            "w-full min-h-screen",
+            "min-h-screen",
             "relative z-[1] pt-20 md:pt-28 lg:pt-44"
           )}
         >
