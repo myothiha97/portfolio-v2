@@ -17,7 +17,7 @@ const Badge = ({ text }: BadgeProps) => {
   return (
     <div
       className={cn(
-        "border border-primary-color bg-transparent px-3 text-sm py-2 rounded-[40px] text-primary-color font-normal transition-colors duration-300 cursor-pointer",
+        "border border-primary-color bg-transparent px-3 text-sm 2xl:text-base py-2 rounded-[40px] text-primary-color font-normal transition-colors duration-300 cursor-pointer",
         "hover:bg-primary-color hover:text-black"
       )}
     >
@@ -36,14 +36,24 @@ const TECHS = [
   "NodeJs",
   "NextJs",
   "NestJs",
+  "VueJs",
   "ExpressJs",
   "Python",
+  "Django",
+  "Flask",
+  "FastAPI",
+  "PHP",
+  "Laravel",
+  "MySQL",
+  "PostgreSQL",
   "Java",
   "CI/CD",
-  "Browser Automation",
-  "Software Testing",
-  "Technical documentation",
-  "Version Control",
+  "selenium",
+  "Cypress",
+  "Playwright",
+  "Docker",
+  "Vitest",
+  "Jest",
 ];
 
 const CopyRight = ({ className }: { className?: string }) => {
@@ -143,14 +153,17 @@ const Intro = ({ className }: Props) => {
         </div>
         <p
           className={cn(
-            "mt-3 sm:mt-5 max-w-2xl text-base sm:text-xl sm:hide transition-opacity duration-1000",
+            "mt-3 sm:mt-5 max-w-2xl text-base sm:text-lg 2xl:text-xl sm:hide transition-opacity duration-1000",
             displayBodyText && "sm:show"
           )}
         >
-          I am a professional software engineer with over five years of
-          experience designing and implementing diverse web applications, from
-          simple static sites to dynamic, large-scale, and high-performance
-          platforms. Below are the skills and technologies I have worked with:
+          I’m a software engineer with 5+ years of experience developing a
+          variety of web applications, from static websites to high-performance
+          platforms. While I specialize in frontend development, I also have
+          practical experience with backend technologies. With a background in
+          Mechatronics Engineering, I bring additional skills in automation,
+          robotics, and system integration. I'm passionate about innovation and
+          solving real-world problems through technology.
         </p>
         <div
           className={cn(
