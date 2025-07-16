@@ -108,7 +108,7 @@ const EXPERIENCES: Experience[] = [
   },
   {
     title: "Codigo - App Development Company in Singapore",
-    position: "Lead Software Engineer - Javascript",
+    position: "Lead Frontend Engineer",
     description:
       "Codigo is a software company specializing in mobile and web app development.",
     date: "09/2021 - 05/2024",
