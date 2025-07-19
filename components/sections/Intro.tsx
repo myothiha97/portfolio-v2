@@ -112,14 +112,14 @@ const Intro = ({ className }: Props) => {
     <SlideIn
       ref={ref}
       className={cn(
-        "w-full relative sm:flex justify-center h-screen sm:max-h-screen overflow-auto",
+        "w-full relative sm:flex justify-center h-screen sm:max-h-screen",
         className
       )}
       id={SECTIONS_IDS.INTRO}
       style={{
         ...(isMobile
-          ? { ...SCROLL_MARGIN_SETTINGS.mobile }
-          : { ...SCROLL_MARGIN_SETTINGS.desktop }),
+          ? SCROLL_MARGIN_SETTINGS.mobile
+          : SCROLL_MARGIN_SETTINGS.desktop),
       }}
     >
       <div className="sm:px-0 px-5 relative z-[1]">
