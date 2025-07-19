@@ -10,58 +10,14 @@ import { SECTIONS_IDS } from "@/constants";
 import { SCROLL_MARGIN_SETTINGS } from "../../constants/index";
 import { useSlideIndexChange } from "../Providers/SlideIndexProvider";
 import SlideIn from "../Animations/motions/SlideIn";
-import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import useResponsive from "@/libs/hooks/useResponsive";
-dayjs.extend(customParseFormat);
-
-type Month =
-  | "01"
-  | "02"
-  | "03"
-  | "04"
-  | "05"
-  | "06"
-  | "07"
-  | "08"
-  | "09"
-  | "10"
-  | "11"
-  | "12";
-type Year = `${number}${number}${number}${number}`;
-type DateRangeFormat = `${Month}/${Year} - ${Month}/${Year}`;
-
-const getTotalWorkExperience = (
-  dateString: DateRangeFormat,
-  isPresent?: boolean
-): string => {
-  const [startStr, endStrRaw] = dateString.split(" - ");
-  const endStr = isPresent ? dayjs().format("MM/YYYY") : endStrRaw;
-
-  const startDate = dayjs(startStr, "MM/YYYY");
-  const endDate = dayjs(endStr, "MM/YYYY");
-  // if (!startDate.isValid() || endDate.isValid()) {
-  //   throw new Error(
-  //     `Error parsing dates startDate- ${startDate} endDate - ${endDate} startStr - ${startStr} endStr - ${endStr}`
-  //   );
-  // }
-
-  const totalMonths = endDate.diff(startDate, "month") + 1;
-
-  if (totalMonths < 12) {
-    return `${totalMonths} month${totalMonths > 1 ? "s" : ""}`;
-  }
-
-  const years = Math.floor(totalMonths / 12);
-  const months = totalMonths % 12;
-
-  let result = `${years} year${years > 1 ? "s" : ""}`;
-  if (months > 0) {
-    result += ` ${months} month${months > 1 ? "s" : ""}`;
-  }
-
-  return result;
-};
+import {
+  getTotalWorkExperience,
+  DateRangeFormat,
+  Month,
+  Year,
+} from "@/libs/utils/misc";
+import { motion } from "framer-motion";
 
 type Experience = {
   title: string;
@@ -156,6 +112,63 @@ advanced data analysis and predictive insights.`,
     ],
   },
 ];
+type ExperienceProps = (typeof EXPERIENCES)[number] & {
+  index?: number;
+};
+
+const Experience = ({ index, ...experience }: ExperienceProps) => {
+  const { isMediumScreen } = useResponsive();
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: "easeOut" },
+      }}
+      viewport={{
+        once: true,
+        margin: isMediumScreen ? "-80% 0px -80% 0px" : "", // Triggers at 20% viewport
+      }}
+    >
+      <AccordionItem key={index} value={`item-${index}`}>
+        <AccordionTrigger className="text-base sm:text-lg">
+          <div>
+            <div className="flex flex-col gap-1">
+              <h1 className="leading-tight sm:leading-snug text-lg 2xl:text-xl">
+                {experience.title}
+              </h1>
+              <p className="leading-tight sm:leading-snug text-base 2xl:text-lg">
+                Position - {experience.position}
+              </p>
+            </div>
+            <div className="flex flex-col">
+              <p className="text-base">Date - {experience.date}</p>
+              <p className="text-base">
+                Duration -{" "}
+                {getTotalWorkExperience(
+                  experience?.date as DateRangeFormat,
+                  experience?.isPresent
+                )}
+              </p>
+              <p className="text-base">Location - {experience.location}</p>
+            </div>
+          </div>
+        </AccordionTrigger>
+        <AccordionContent className="text-base">
+          <ul className="">
+            {experience.fullDescription.map((desc, index) => (
+              <li key={index} className="flex gap-x-3 last:mb-0 mb-1">
+                <div>-</div>
+                <span className="text-sm">{desc}</span>
+              </li>
+            ))}
+          </ul>
+        </AccordionContent>
+      </AccordionItem>
+    </motion.div>
+  );
+};
 
 type Props = {
   className?: string;
@@ -176,7 +189,7 @@ const Experiences = ({ className }: Props) => {
       style={{
         ...(isMobile
           ? { ...SCROLL_MARGIN_SETTINGS.mobile }
-          : { ...SCROLL_MARGIN_SETTINGS.desktop }),
+          : { scrollMarginTop: "90px" }),
       }}
     >
       <h1 className="sm:mb-8 mb-5">Work Experiences</h1>
@@ -186,41 +199,7 @@ const Experiences = ({ className }: Props) => {
         className="w-full flex flex-col gap-5"
       >
         {EXPERIENCES.map((experience, index) => (
-          <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-base sm:text-lg">
-              <div>
-                <div className="flex flex-col gap-1">
-                  <h1 className="leading-tight sm:leading-snug text-lg 2xl:text-xl">
-                    {experience.title}
-                  </h1>
-                  <p className="leading-tight sm:leading-snug text-base 2xl:text-lg">
-                    Position - {experience.position}
-                  </p>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-base">Date - {experience.date}</p>
-                  <p className="text-base">
-                    Duration -{" "}
-                    {getTotalWorkExperience(
-                      experience?.date as DateRangeFormat,
-                      experience?.isPresent
-                    )}
-                  </p>
-                  <p className="text-base">Location - {experience.location}</p>
-                </div>
-              </div>
-            </AccordionTrigger>
-            <AccordionContent className="text-base ">
-              <ul className="">
-                {experience.fullDescription.map((desc, index) => (
-                  <li key={index} className="flex gap-x-3 last:mb-0 mb-1">
-                    <div>-</div>
-                    <span className="text-sm">{desc}</span>
-                  </li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
+          <Experience index={index} {...experience} />
         ))}
       </Accordion>
     </SlideIn>
