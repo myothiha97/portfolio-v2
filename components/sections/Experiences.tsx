@@ -182,7 +182,7 @@ const Experiences = ({ className }: Props) => {
     <SlideIn
       ref={ref}
       className={cn(
-        "hide-scrollbar mt-10 sm:mt-0 sm:max-w-2xl lg:w-[clamp(400px,60vw,700px)] lg:px-0 px-5 sm:pt-10 min-h-screen pageContainer",
+        "hide-scrollbar sm:max-w-2xl lg:w-[clamp(400px,60vw,700px)] lg:px-0 px-5 sm:pt-10 min-h-screen pageContainer",
         className
       )}
       id={SECTIONS_IDS.EXPERIENCES}

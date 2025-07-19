@@ -112,7 +112,7 @@ const Intro = ({ className }: Props) => {
     <SlideIn
       ref={ref}
       className={cn(
-        "w-full relative sm:flex justify-center h-screen sm:max-h-screen",
+        "w-full relative sm:flex justify-center min-h-screen sm:max-h-screen",
         className
       )}
       id={SECTIONS_IDS.INTRO}
