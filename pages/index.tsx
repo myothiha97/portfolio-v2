@@ -26,8 +26,8 @@ export default function Home() {
         ) : (
           <>
             <NavBar className="fixed z-50 top-5" />
-            <Intro />
-            <Experiences className="mb-36" />
+            <Intro className="sm:mb-0 mb-32" />
+            <Experiences className="mb-32 sm:mb-36" />
             <ProjectCards />
             <Contact />
           </>
