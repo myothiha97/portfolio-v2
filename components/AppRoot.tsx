@@ -66,6 +66,7 @@ const AppRoot = ({ children }: Props) => {
       <MobileModal />
       <SlideIndexProvider>
         <MobileMenu />
+
         <motion.main
           initial={"slideOut"}
           whileInView={"slideIn"}

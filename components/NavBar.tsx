@@ -82,33 +82,6 @@ const NavPagination = ({ className }: NavPaginationProps) => {
           >
             {section.title}
           </button>
-          // <button
-          //   key={index}
-          //   className={cn(
-          //     "rounded-full transition-all",
-          //     slideIndex === index
-          //       ? showNavBarColor
-          //         ? "font-bold"
-          //         : "text-primary-color"
-          //       : showNavBarColor
-          //       ? "text-black"
-          //       : "text-gray-400",
-          //     section.title === "Contact"
-          //       ? showNavBarColor
-          //         ? `${contactBtnClass} bg-gray-800 text-primary-color`
-          //         : `${contactBtnClass}`
-          //       : ""
-          //   )}
-          //   onClick={() => {
-          //     if (index === SECTIONS.length - 1) {
-          //       openModal({ content: <ContactModal /> });
-          //       return;
-          //     }
-          //     scrollToSection(section.id);
-          //   }}
-          // >
-          //   {section.title}
-          // </button>
         ))}
       </div>
     </nav>
